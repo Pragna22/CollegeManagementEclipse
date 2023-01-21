@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<head>
+<title>Home</title>
+
+<link rel="stylesheet" href="navbar.css">
+
+<style>
+  .topnav,#home a{
+  background-color: #008b8b;
+  overflow: hidden;
+}
+ body{
+    background: url("future.jpg");
+    background-position: top; 
+  background-repeat: no-repeat; 
+  background-size: cover;
+  font-family: 'Arial';
+  }
+  p{
+    font-size: 25px;
+    text-align:center;
+    color:blue;
+  }
+  .timeDate{
+   
+            width: 382px;  
+            margin: auto;  
+            margin: 20 0 0 450px;  
+            padding: 80px;  
+            color: black;  
+            padding: 20px;  
+            background-color:#def094ba;
+            border-radius: 15px ;  
+            font-weight: bold; 
+  }
+  button{
+			text-align: center;
+            box-sizing: border-box;
+  			background-color: lightgoldenrodyellow;
+  			color: rgb(128, 0, 0);
+            width: 172px;
+            margin: auto;
+                padding: 10px;
+                padding: 10px;
+                padding-bottom: 10px;
+                border-radius: 20px;
+                text-emphasis: bold;
+                font-size: 0.42cm;
+				cursor: pointer;
+		}
+    p1{
+      color: red;
+    }
+</style>
+</head>
+<body>
+  
+  <div id="logo">
+    <img src="fiem.jpg">
+  </div>
+  <div class="timeDate">
+    <span id="time"></span>
+    <script>
+      setInterval(updateTime, 1000);
+      function updateTime(){
+        time.innerHTML= new Date();
+      }
+    </script>
+  </div>
+  <br>
+  <div id="home">
+     <a href="index.html">Home</a>
+  </div>
+ <div class="topnav">
+
+  
+  <a href="login.html" target="_blank">Login/Signup</a>
+  <div class="dropdown">
+    <button class="dropbtn">Extracurricular
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="xplorica.html">Xplorica</a>
+      <a href="culrav.html">Culrav</a>
+      <a href="estrella-1.html">Estrella</a>
+      <a href="sportivo.html">Sportivo</a>
+    </div>
+  </div>
+  <a href="#Notice">Notice Board</a>
+  <!--<a href="#club" target="_blank">Extracurricular</a>-->
+  
+  <a href="courses.html">Streams</a>
+  <a href="#gallery">Gallery</a>
+  <a href="contact.html">Contact</a>
+  <a href="About.html">About</a> 
+  </div> 
+   <div> <p><strong>Affliated to MAKAUT | Approved by AICTE</p></div>
+ <details>
+        <summary><em><marquee><p1>Admission process is going on for the 1st semester of the new academic session of 2022-26 in FIEM. To register yourself in FIEM click on the arrow at the left.</p1></marquee></em></summary>
+        <br><br>
+        <b><p1>Click on the button which is given below .</p1></b><br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8595;
+        <br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Admit.html"><button type="button" target="alt"><b>Admission Form</b></button></a>
+    </details>
+    <!-- <a href="Admit.html" target="_blank">&lt;Admit&gt;</a> --> 
+</body>

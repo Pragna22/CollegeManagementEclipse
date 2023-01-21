@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty</title>
+    <link rel="stylesheet" href="navbar.css">
+    <style>
+        .topnav,#home a{
+    background-color: #008b8b;
+    overflow: hidden;
+    }   .logo{
+        float: left;
+       }
+        .head {
+            text-align: left;
+            background-color: lightgoldenrodyellow;
+            color: darkblue;
+            box-sizing: border-box;
+            margin: 0px 100px 0px 300px;
+            width: 910px;
+            border-radius: 20px;
+            padding: 5px 5px 5px 10px;
+        }
+        body {
+            background: rgb(198, 198, 237);
+  padding: 0;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  color: #000;
+  
+}
+
+        .mid{
+            margin: 20px 200px 0px 100px;
+            text-align: center;
+            margin-right: 6cm;
+            margin-top: 2cm;
+          
+        }
+        .mid{
+            animation: blinker 0.5s linear infinite;
+        }
+
+        @keyframes blinker {
+            50% {
+                opacity: 0.6;
+            }
+        }
+        .name{
+            text-align: center;
+            float: left;
+            font-size: 1cm;
+            margin-right: 30cm;
+        }
+        .info{
+            text-align: center;
+            background-color: aquamarine;
+            color: black;
+            padding: 5px 10px 10px 10px;
+                margin: 20px 10px 0px 530px;
+                text-align: center;
+                width: 400px;
+        }
+        .content {
+  padding: 10px ;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+.collapsible {
+ 
+            text-align: center;
+            box-sizing: border-box;
+  			background-color: rgb(93, 54, 234);
+  			color: white;
+            width: 272px;
+            margin: auto;
+                padding: 20px;
+                padding: 20px;
+                padding-bottom: 20px;
+                border-radius: 20px;
+                text-emphasis: bold;
+                font-size: 0.42cm;
+}
+
+collapsible:hover {
+  background-color: #555;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+.student_profile .profile_img{
+         border-radius: 10px;
+         width: 150px;
+  height: 150px;
+  /* object-fit: cover; */
+  margin: 10px auto;
+  border: 10px solid rgb(109, 103, 103);
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 5px 10px;
+  color: #000;
+}
+img {
+    float: left;
+  }
+  .name{
+    font-family: cursive;
+    font-size: 30px
+  }
+  
+    </style>
+</head>
+<body>
+    <div id="home">
+        <a href="index.html" target="_blank">Home</a>
+     </div>
+    <div class="topnav">
+   
+     
+       <a href="login.html">Logout</a>
+     <div class="dropdown">
+       <button class="dropbtn">Extracurricular
+         <i class="fa fa-caret-down"></i>
+       </button>
+       <div class="dropdown-content">
+         <a href="xplorica.html" target="_blank">Xplorica</a>
+         <a href="culrav.html" target="_blank">Culrav</a>
+         <a href="estrella-1.html" target="_blank">Estrella</a>
+         <a href="sportivo.html" target="_blank">Sportivo</a>
+       </div>
+     </div>
+     <a href="#Notice">Notice Board</a>
+     <!--<a href="#club" target="_blank">Extracurricular</a>-->
+     
+     <a href="courses.html" target="_blank">Streams</a>
+     <a href="#gallery">Gallery</a>
+     <a href="contact.html">Contact</a>
+     <a href="About.html" class="hre">About</a> 
+     </div> 
+     <br>
+     <div class="student_profile">
+        <div class="container">      
+        <div class="image">
+           <img class="profile_img" src="fac.jpeg" alt="">
+    </div>
+        <div class="head">
+        <h1><marquee>FUTURE INSTITUTE OF ENGINEERING & MANAGEMENT</marquee></h1>
+    </div>
+        <div class="mid">
+            <h1>WELCOME</h1>
+        </div>
+        <div class="name">
+            <p>Name : abc</p>
+        </div><br><br><br><br><br><br>
+        <button type="button" class="collapsible">Details</button>
+        <div class="content">
+            <h3 class="mb-0"><i class="far fa-clone pr-1"></i>General Information</h3>
+        <table class="table table-bordered">
+            <tr>
+              <th width="30%">Name</th>
+              <td width="2%">:</td>
+              <td>Abc</td>
+            </tr>
+            <tr>
+              <th width="30%">Department	</th>
+              <td width="2%">:</td>
+              <td>CSE</td>
+            </tr>
+            <tr>
+              <th width="30%">Educational Qualification</th>
+              <td width="2%">:</td>
+              <td>Mtech</td>
+            </tr>
+            <tr>
+                <th width="30%">Years of Experience</th>
+                <td width="2%">:</td>
+                <td>3years</td>
+              </tr>
+          </table>
+          <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Contact Information</h3>
+          <table class="table table-bordered">
+            <tr>
+              <th width="30%">Phone</th>
+              <td width="2%">:</td>
+              <td>3567821972</td>
+            </tr>
+            <tr>
+              <th width="30%">Email	</th>
+              <td width="2%">:</td>
+              <td>abc@gmail.com</td>
+            </tr>
+            <tr>
+              <th width="30%">Address</th>
+              <td width="2%">:</td>
+              <td>Barasat</td>
+            </tr>
+          </table>
+        </div>
+        <br><br>
+          <button type="button" class="collapsible">Marks Upload</button>
+          <div class="content">
+      
+        </div>
+        <br><br>
+        <button type="button" class="collapsible">Timetable</button>
+        <div class="content">
+            
+      </div>
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+            
+            for (i = 0; i < coll.length; i++) {
+              coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                  content.style.display = "none";
+                } else {
+                  content.style.display = "block";
+                }
+              });
+            }
+            </script>
+        
+    </div>
+    </body>
+    </html>

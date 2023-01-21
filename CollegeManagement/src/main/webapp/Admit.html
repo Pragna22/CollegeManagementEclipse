@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password</title>
+    <link rel="stylesheet" href="navbar.css">
+    <style>
+        body{
+            background-color: aqua;
+        }
+        h1{
+            text-align: center;
+            color: powderblue;
+            background-color: purple;
+            box-sizing: border-box;
+            width: 600px;  
+    		margin: auto;  
+            margin: 20 0 0 450px;  
+            padding: 80px;    
+   		    padding: 10px;  
+   		    border-radius: 15px ;
+        }
+        h1:hover{
+            color: green;
+            background-color: rgb(67, 208, 187);
+        }
+        .admit{
+                box-sizing: border-box;
+				padding: 12px 20px;
+				width: 682px;
+				background-color:#eb83d1;
+                text-align: center;
+                margin: auto;
+                margin: 20 0 0 450px;
+                padding: 80px;
+                padding: 20px;
+                border-radius: 20px;
+        }
+        h3{
+            box-sizing: border-box;
+            text-align: center;
+            background-color: yellow;
+            color: purple;
+            width: 600px;  
+    		margin: auto;  
+            margin: 20 0 0 450px;  
+            padding: 80px;    
+   		    padding: 20px;  
+   		    border-radius: 15px ;   
+        }
+        input[type=text]{
+            color: darkblue;
+        } 
+        button{
+            color: peachpuff;
+            background-color: green;
+        } 
+        button:hover{
+            background-color: rgb(152, 66, 233);
+        }
+        .topnav,#home a{
+  background-color: #008b8b;
+  overflow: hidden;
+}
+        body{
+            background-color: aqua;
+             font-family: 'Arial';
+        }
+    </style>
+</head>
+<body>
+    <div id="logo">
+        <img src="fiem.jpg">
+      </div>
+      
+      <div id="home">
+         <a href="index.html">Home</a>
+      </div>
+     <div class="topnav">
+    
+      
+      <a href="login.html" target="_blank">Login/Signup</a>
+      <div class="dropdown">
+        <button class="dropbtn">Extracurricular
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="xplorica.html" target="_blank">Xplorica</a>
+          <a href="culrav.html" target="_blank">Culrav</a>
+          <a href="estrella-1.html" target="_blank">Estrella</a>
+          <a href="sportivo.html" target="_blank">Sportivo</a>
+        </div>
+      </div>
+      <a href="#Notice">Notice Board</a>
+      <!--<a href="#club" target="_blank">Extracurricular</a>-->
+      
+      <a href="courses.html" target="_blank">Streams</a>
+      <a href="#gallery">Gallery</a>
+      <a href="contact.html">Contact</a>
+      <a href="About.html">About</a> 
+     
+      </div> <br>
+        <h1>Admission Form</h1><br>
+    <div class="admit">
+        <form id="admit" method="get" action="admitt" enctype="multipart/form-data" >
+            <label><b>Name:</b></label>  
+        <input type="text" name="uanme" placeholder="Enter your name" required><br><br>
+		<label><b>Guardian's Name</b></label>  
+        <input type="text" name="ganme" placeholder="Enter your guardian's name" required><br>
+		<div><br>
+		<label><b>Mobile number:</b></label>  
+        <input type="text" name="mob" placeholder="Enter your mobile number" required>
+		</div>
+        <div><br>
+            <label><b>Email id :</b></label>  
+            <input type="email" name="email" placeholder="Enter your email id" required>
+            </div>
+		<br>
+		<div>
+		<label><b>WBJEE/JEE MAIN rank number:</b></label>  
+        <input type="text" name="rank" placeholder="Enter your Rank number" required>
+		</div><br>
+        <div class="div">
+            <label for="file"><b>Upload your WBJEE/JEE MAIN Result</b></label>
+            <input type="file" name="file" id="file" required>
+        </div><br>
+        <div>
+            <label><b>Aadhar/Pan/Voter id card number :</b></label>  
+            <input type="text" name="card" placeholder="Enter your card number" required>
+            </div><br>
+            <div class="div">
+                <label for="file"><b>Upload this card which number you have entered the above coloumn</b></label>
+                <input type="file" name="file" id="file" required>
+            </div><br>
+		<div>
+            <label><b>Date of birth : </b></label>  
+        <input type="date" name="mydate" placeholder="Enter your DOB" required>
+		</div><br>
+        <div class="div">
+            <label for="file"><b>Upload your DOB Certificate/10th Marksheet</b></label>
+            <input type="file" name="file" id="file" required>
+        </div><br>
+		<div>
+			<label><b>Gender : </b></label>  
+            Male <input type="radio" name="MyGender"> Female <input type="radio" name="MyGender">
+                Other <input type="radio" name="MyGender">
+		</div><br>
+        <div>
+			<label><b>Caste : </b></label>  
+            General <input type="radio" name="Mycaste"> SC <input type="radio" name="Mycaste">
+                ST <input type="radio" name="Mycaste"> OBC <input type="radio" name="Mycaste">
+		</div><br>
+        <label><b>Are you disabled ?</b></label>
+        Yes <input type="radio" name="mydisable"> No  <input type="radio" name="mydisable"><br><br>
+    <h3>You have to secure 60% marks in all of the subjects.You have to put in the correct marks in the following section and must upload the the (10+2) marksheet.
+        <br>
+        Marks obtained in 10+2 examination.
+    </h3>
+        <div class="marks">
+                <div>
+                    <br><label><b>Maths  :</b></label> 
+                    &nbsp;&nbsp;<input type="number" name="math" placeholder="Enter your Marks" required>
+                </div>
+                <div>
+                    <br><label><b>Physics : </b></label> 
+                    &nbsp;&nbsp;<input type="number" name="physics" placeholder="Enter your Marks" required>
+                </div>
+                <div><br><label><b> Chemistry :</b></label>
+                    &nbsp;&nbsp;<input type="number" name="chem" placeholder="Enter your Marks" required>
+                </div>
+                <div><br><label><b>Computer Science/Biology :</b></label>
+                     &nbsp;&nbsp;<input type="number" name="comp" placeholder="Enter your Marks" required>
+                </div>
+                <div>
+                    <br><label><b>Are you eligible? : </b></label>
+                    &nbsp;&nbsp;<input type="checkbox" name="Myeligibility" checked>
+                </div><br>
+                <div class="div">
+                    <label for="file"><b>Upload your (10+2) marksheet</b></label>
+                    <input type="file" name="file" id="file" required>
+                </div>
+                <div>
+                    <br>
+                    <label for="department"><b>In which Department do you want to get admission ?</b></label>
+                    <select name="department" id="department">
+                        <option value="CSE">CSE</option>
+                        <option value="ECE">ECE</option>
+                        <option value="IT">IT</option>
+                        <option value="ME" >ME</option>
+                        <option value="ME" selected>EE</option>
+                    </select>
+                </div>
+                <div>
+                    <br><label><b>Why are you interested in this stream : </b></label>
+                    <br><br> <textarea name="MyText" cols="50"
+                        rows="10" required></textarea>
+                </div><br><br>
+                    <button type="submit">Submit Now</button>
+                    <button type="reset">Reset Now</button>
+        </div>
+        </form>
+    </div>
+        </div>
+        <script>
+            let admission= confirm("If you really want to get admission in FIEM. Please fill the form !!");
+          </script>
+</body>
+</html>

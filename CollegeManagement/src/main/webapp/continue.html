@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Continue</title>
+    <link rel="stylesheet" href="navbar.css">
+
+<style>
+  .topnav,#home a{
+  background-color: #008b8b;
+  overflow: hidden;
+}
+        body{
+            background-color: lightgreen;
+            font-family: 'Arial';
+        }
+        h3{
+            text-align: center;
+            color: bisque;
+            background-color: blueviolet;
+            box-sizing: border-box;
+            margin: auto;
+            margin: 20px 0px 0px 450px;
+            width: 610px;
+            border-radius: 20px;
+            padding: 20px;
+            padding-right: 18px;
+        }
+        .reset{
+            text-align: center;
+            background-color: rgb(235, 135, 180);
+            box-sizing: border-box;
+            margin: auto;
+            margin: 20px 0px 0px 450px;
+            width: 623px;
+            border-radius: 20px;
+            padding: 20px;
+            padding-right: 18px;
+        }
+        button{
+            color: rgb(29, 1, 207);
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="logo">
+    <img src="fiem.jpg">
+  </div>
+  
+  <div id="home">
+     <a href="index.html">Home</a>
+  </div>
+ <div class="topnav">
+
+  
+  <a href="login.html" target="_blank">Login</a>
+  <div class="dropdown">
+    <button class="dropbtn">Extracurricular
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="xplorica.html" target="_blank">Xplorica</a>
+      <a href="culrav.html" target="_blank">Culrav</a>
+      <a href="estrella-1.html" target="_blank">Estrella</a>
+      <a href="sportivo.html" target="_blank">Sportivo</a>
+    </div>
+  </div>
+  <a href="#Notice">Notice Board</a>
+  <!--<a href="#club" target="_blank">Extracurricular</a>-->
+  <a href="courses.html" target="_blank">Streams</a>
+  <a href="#gallery">Gallery</a>
+  <a href="contact.html">Contact</a>
+  <a href="About.html">About</a> 
+  </div> 
+    <h3>Reset your Password</h3><br>
+    <div class="reset">
+    <br>
+        <label><b>Enter a new Password : &nbsp;</b></label>    
+        <input type="Password" name="Pass" id="Pass" placeholder="Enter the new Password"><br>
+        <br><div>
+            <label><b>Confirm Password: &nbsp;</b></label>    
+            <input type="Password" name="Pass" id="Pass" placeholder="Enter the Password">   
+        </div><br><br>
+            <a href="go.html"><button type="confirm">Click here to Confirm the new Password</button></a>  
+    </div><br>
+
+    <script>
+      let changePassword= confirm("Do you really want to change the password?");
+    </script>
+</body>
+</html>

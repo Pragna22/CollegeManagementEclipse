@@ -1,0 +1,162 @@
+<!DOCTYPE HTML>
+<head>
+	<title>
+		Login
+	</title>
+<link rel="stylesheet" href="navbar.css">	
+
+	<style >
+		.topnav,#home a{
+ 				 background-color: #008b8b;
+ 				 overflow: hidden;
+				}
+        h1{
+            text-align: center;
+            font-size: 30px;
+            font-family: Times New Roman,Georgia,Garamond;
+            font-weight: 900;
+            color:white;
+        }
+        body {  
+            margin: 0;  
+            padding: 0;   
+            font-family: 'Arial';
+            background-color:   lightblue;  
+        } 
+        .login{  
+        width: 382px;  
+        overflow: hidden;  
+        margin: auto;  
+        margin: 20 0 0 450px;  
+        padding: 80px;  
+        background: #6abadeba;  
+        border-radius: 15px ; 
+        font-weight: bold;          
+        }
+        #type{
+            width: auto; 
+        overflow: hidden;  
+        margin: auto;  
+        margin: 20 0 0 350px;  
+        padding: 20px;  
+        background: #f5f8faba;  
+        border-radius: 15px ; 
+        font-weight: bold;          
+        }
+        h2{  
+            text-align: center;
+            width: 382px;  
+            margin: auto;  
+            margin: 20 0 0 450px;  
+            padding: 80px;  
+            color: black;  
+            padding: 20px;  
+            background-color:#6abadeba;
+            border-radius: 15px ;   
+        } 
+        
+        input[type=text]{
+            width: 150px;  
+                padding: 12px 0 0 15px;
+                margin: 8px 0;
+                box-sizing: border-box;
+                background-color:#f1f1f1;
+        }
+
+        input[type=text]:hover{
+                background-color:rgb(115,137,224);
+                color: #3004aa;
+                text-emphasis:bold;
+                }
+        button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+
+        }
+
+        button:hover {
+              opacity: 0.8;
+        }
+
+
+    </style>
+</head>
+
+
+<body>
+
+        <div id="logo">
+    <img src="fiem.jpg">
+  </div>
+  
+  <div id="home">
+     <a href="index.html">Home</a>
+  </div>
+ <div class="topnav">
+
+  
+  <a href="login.html" target="_blank">Login</a>
+  <div class="dropdown">
+    <button class="dropbtn">Extracurricular
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="xplorica.html" target="_blank">Xplorica</a>
+      <a href="culrav.html" target="_blank">Culrav</a>
+      <a href="estrella-1.html" target="_blank">Estrella</a>
+      <a href="sportivo.html" target="_blank">Sportivo</a>
+    </div>
+  </div>
+  <a href="#Notice">Notice Board</a>
+  <!--<a href="#club" target="_blank">Extracurricular</a>-->
+  
+  <a href="courses.html" target="_blank">Streams</a>
+  <a href="#gallery">Gallery</a>
+  <a href="contact.html">Contact</a>
+  <a href="About.html" class="hre">About</a> 
+  </div> 
+	<h1> WELCOME TO FUTURE INSTITUTE OF ENGINEERING AND MANAGEMENT </h1>
+	<hr>
+	<h2>Student Login</h2>
+	<br>  
+    <div class="login">    
+    <form id="login" method="get" action="LoginServ">    
+        <label><b>User Name     
+        </b>    
+        </label>    
+        <input type="text" name="Uname" id="Uname" placeholder="Username"/>    
+        <br><br>  
+        <label><b>Enter Password
+        </b>
+        </label>   
+        <input type="password" placeholder="Enter Password" name="Pass" required/> 
+        <br><br>    
+        <label for="type">Type:</label>
+        <br>
+        <select id="type" name="type">
+            <option value="faculty">Faculty</option>
+            <option value="student">Student</option>
+        </select>  
+        <br><br>     
+        <input type="checkbox" id="check">    
+        <span>Remember me</span>    
+        <br><br>    
+        Forgot <a href="password.html" class="hre">Password</a>  
+        <div>
+	
+	<br><button type="submit">LOGIN</button>
+	</div>  
+	<div>
+		<hr>
+		<br><br>
+		<p>Dont't have an account? Register yourself now</p>
+		<a href="Signup.html" target="_blank">Register</a>
+	</div>
+    </form>     
+</div>    
+</body>
