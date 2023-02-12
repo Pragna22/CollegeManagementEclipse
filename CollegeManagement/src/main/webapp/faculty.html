@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="navbar.css">
     <style>
         .topnav,#home a{
-    background-color: #008b8b;
-    overflow: hidden;
-    }   .logo{
+            background-color: #008b8b;
+            overflow: hidden;
+          }  
+     .logo{
         float: left;
        }
         .head {
@@ -25,12 +26,11 @@
         }
         body {
             background: rgb(198, 198, 237);
-  padding: 0;
-  margin: 0;
-  font-family: 'Lato', sans-serif;
-  color: #000;
-  
-}
+            padding: 0;
+            margin: 0;
+            font-family: 'Lato', sans-serif;
+            color: #000;
+          }
 
         .mid{
             margin: 20px 200px 0px 100px;
@@ -96,7 +96,7 @@ collapsible:hover {
   overflow: hidden;
   background-color: #f1f1f1;
 }
-.student_profile .profile_img{
+.fac_profile .profile_img{
          border-radius: 10px;
          width: 150px;
   height: 150px;
@@ -117,7 +117,104 @@ img {
     font-family: cursive;
     font-size: 30px
   }
+  .edit {
+            text-align: center;
+            box-sizing: border-box;
+            margin: 40px 0px 0px 750px; 
+            width: 100px;
+            border-radius: 20px; 
+            padding: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            background: yellow;
+            
+            
+         }
+
+        
+         @mixin object-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+  input {
+    display: none;
+  }
   
+ 
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+label {
+    cursor: default;
+}
+
+ 
+  
+
+
+
+body {
+  height: 100vh;
+
+  @include object-center;
+}
+  a:hover {
+    text-decoration: none;
+  }
+
+
+.profile-pic {
+  color: transparent;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: all 0.3s ease;
+  float:left;
+}
+.profile-pic input {
+  display: none;
+}
+.profile-pic img {
+  position: absolute;
+  object-fit: cover;
+  width: 165px;
+  height: 165px;
+  box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.35);
+  border-radius: 100px;
+  z-index: 0;
+}
+.profile-pic .-label {
+  cursor: pointer;
+  height: 165px;
+  width: 165px;
+}
+.profile-pic:hover .-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10000;
+  color: #fafafa;
+  transition: background-color 0.2s ease-in-out;
+  border-radius: 100px;
+  margin-bottom: 0;
+}
+.profile-pic span {
+  display: inline-flex;
+  padding: 0.2em;
+  height: 2em;
+}
     </style>
 </head>
 <body>
@@ -148,72 +245,111 @@ img {
      <a href="About.html" class="hre">About</a> 
      </div> 
      <br>
-     <div class="student_profile">
+     <div class="fac_profile">
         <div class="container">      
-        <div class="image">
-           <img class="profile_img" src="fac.jpeg" alt="">
-    </div>
+       
+<div class="profile-pic">
+  <label class="-label" for="file">
+    <span class="glyphicon glyphicon-camera"></span>
+    <span>Change Image</span>
+  </label>
+ < <input id="file" type="file"  onchange="loadFile(event)"/>
+  
+ 
+  <img src="stu.jpg" id="output" width="200" />
+</div>
+
+<script>
+
+
+</script>
         <div class="head">
         <h1><marquee>FUTURE INSTITUTE OF ENGINEERING & MANAGEMENT</marquee></h1>
     </div>
         <div class="mid">
             <h1>WELCOME</h1>
         </div>
-        <div class="name">
-            <p>Name : abc</p>
+        <div class="name" id="name">
+         
         </div><br><br><br><br><br><br>
-        <button type="button" class="collapsible">Details</button>
-        <div class="content">
-            <h3 class="mb-0"><i class="far fa-clone pr-1"></i>General Information</h3>
-        <table class="table table-bordered">
-            <tr>
-              <th width="30%">Name</th>
-              <td width="2%">:</td>
-              <td>Abc</td>
-            </tr>
-            <tr>
-              <th width="30%">Department	</th>
-              <td width="2%">:</td>
-              <td>CSE</td>
-            </tr>
-            <tr>
-              <th width="30%">Educational Qualification</th>
-              <td width="2%">:</td>
-              <td>Mtech</td>
-            </tr>
-            <tr>
-                <th width="30%">Years of Experience</th>
-                <td width="2%">:</td>
-                <td>3years</td>
-              </tr>
-          </table>
-          <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Contact Information</h3>
-          <table class="table table-bordered">
-            <tr>
-              <th width="30%">Phone</th>
-              <td width="2%">:</td>
-              <td>3567821972</td>
-            </tr>
-            <tr>
-              <th width="30%">Email	</th>
-              <td width="2%">:</td>
-              <td>abc@gmail.com</td>
-            </tr>
-            <tr>
-              <th width="30%">Address</th>
-              <td width="2%">:</td>
-              <td>Barasat</td>
-            </tr>
-          </table>
-        </div>
-        <br><br>
-          <button type="button" class="collapsible">Marks Upload</button>
-          <div class="content">
+        
+        <script>
+        
+        function getCookie(name) {
+        	  var value = "; " + document.cookie;
+        	  var parts = value.split("; " + name + "=");
+        	  if (parts.length == 2) return parts.pop().split(";").shift();
+        	}
+        var fname = getCookie("fname");
+        var lname = getCookie("lname");
+        var array = [fname,lname];
+        const name=array.join(' ');
+
+        document.getElementById("name").innerHTML = name;
+
+        </script>
+        <button type="button" class="collapsible">Faculty Details</button>
+    <div class="content">
+        <h3 class="mb-0"><i class="far fa-clone pr-1"></i>General Information</h3>
+    <table class="table table-bordered">
+        <tr>
+          <th width="30%">Roll</th>
+          <td width="2%">:</td>
+          <td>20CSE118</td>
+        </tr>
+        <tr>
+          <th width="30%">Academic Year	</th>
+          <td width="2%">:</td>
+          <td>2020</td>
+        </tr>
+        <tr>
+          <th width="30%">Gender</th>
+          <td width="2%">:</td>
+          <td>Female</td>
+        </tr>
+        <tr>
+            <th width="30%">Department</th>
+            <td width="2%">:</td>
+            <td>CSE</td>
+          </tr>
+      </table>
+      <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Contact Information</h3>
+      <table class="table table-bordered">
+        <tr>
+          <th width="30%">Phone</th>
+          <td width="2%">:</td>
+          <td>8637839320</td>
+        </tr>
+        <tr>
+          <th width="30%">Email	</th>
+          <td width="2%">:</td>
+          <td>pragnadutta5@gmail.com</td>
+        </tr>
+        <tr>
+          <th width="30%">Address</th>
+          <td width="2%">:</td>
+          <td>Garia</td>
+        </tr>
+      </table>
+      <div class="edit">
+      <br><a href="facedit.html">Edit</a>
+    </div>
+    </div>
+    <br><br>
+      <button type="button" class="collapsible"> 
+        <a href="marks.html">Marks Upload</a>
+      </button>
+      <div class="content">
+  
+      </div>
+      <br><br>
+      <button type="button" class="collapsible">Timetable</button>
+      <div class="content">
+          
+    </div>
+            
       
-        </div>
-        <br><br>
-        <button type="button" class="collapsible">Timetable</button>
-        <div class="content">
+        
             
       </div>
         <script>
@@ -231,6 +367,13 @@ img {
                 }
               });
             }
+           
+
+             var loadFile = function (event) {
+             var image = document.getElementById("output");
+             image.src = URL.createObjectURL(event.target.files[0]);
+            };
+
             </script>
         
     </div>

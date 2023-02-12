@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password</title>
+    <title>Admission</title>
     <link rel="stylesheet" href="navbar.css">
     <style>
         body{
@@ -100,18 +100,19 @@
       <a href="#gallery">Gallery</a>
       <a href="contact.html">Contact</a>
       <a href="About.html">About</a> 
-     
+     <!-- < enctype="multipart/form-data"></enctype> -->
       </div> <br>
         <h1>Admission Form</h1><br>
     <div class="admit">
-        <form id="admit" method="get" action="admitt" enctype="multipart/form-data" >
+        <form id="admit" method="Post" action="Admission"  enctype="multipart/form-data">
             <label><b>Name:</b></label>  
-        <input type="text" name="uanme" placeholder="Enter your name" required><br><br>
+        <input type="text" name="uname"  placeholder="Enter your name" required><br><br>
+        <!-- <input type="text" name="uname" id="uname" placeholder="Username"/>    -->
 		<label><b>Guardian's Name</b></label>  
-        <input type="text" name="ganme" placeholder="Enter your guardian's name" required><br>
+        <input type="text" name="gname" placeholder="Enter your guardian's name" ><br>
 		<div><br>
 		<label><b>Mobile number:</b></label>  
-        <input type="text" name="mob" placeholder="Enter your mobile number" required>
+        <input type="text" name="mob" placeholder="Enter your mobile number" >
 		</div>
         <div><br>
             <label><b>Email id :</b></label>  
@@ -120,29 +121,25 @@
 		<br>
 		<div>
 		<label><b>WBJEE/JEE MAIN rank number:</b></label>  
-        <input type="text" name="rank" placeholder="Enter your Rank number" required>
+        <input type="text" name="ranks" placeholder="Enter your Rank number" >
 		</div><br>
         <div class="div">
             <label for="file"><b>Upload your WBJEE/JEE MAIN Result</b></label>
-            <input type="file" name="file" id="file" required>
+            <input type="file" name="rankpdf" id="file" >
         </div><br>
         <div>
             <label><b>Aadhar/Pan/Voter id card number :</b></label>  
-            <input type="text" name="card" placeholder="Enter your card number" required>
+            <input type="number" name="card" placeholder="Enter your card number" >
             </div><br>
             <div class="div">
-                <label for="file"><b>Upload this card which number you have entered the above coloumn</b></label>
-                <input type="file" name="file" id="file" required>
+                <label for="file"><b>Upload this card which number you have entered the above column</b></label>
+                <input type="file" name="cardpdf" id="file" >
             </div><br>
 		<div>
             <label><b>Date of birth : </b></label>  
-        <input type="date" name="mydate" placeholder="Enter your DOB" required>
+        <input type="date" name="dob" placeholder="Enter your DOB" >
 		</div><br>
-        <div class="div">
-            <label for="file"><b>Upload your DOB Certificate/10th Marksheet</b></label>
-            <input type="file" name="file" id="file" required>
-        </div><br>
-		<div>
+    	<div>
 			<label><b>Gender : </b></label>  
             Male <input type="radio" name="MyGender"> Female <input type="radio" name="MyGender">
                 Other <input type="radio" name="MyGender">
@@ -152,34 +149,37 @@
             General <input type="radio" name="Mycaste"> SC <input type="radio" name="Mycaste">
                 ST <input type="radio" name="Mycaste"> OBC <input type="radio" name="Mycaste">
 		</div><br>
+	
         <label><b>Are you disabled ?</b></label>
         Yes <input type="radio" name="mydisable"> No  <input type="radio" name="mydisable"><br><br>
     <h3>You have to secure 60% marks in all of the subjects.You have to put in the correct marks in the following section and must upload the the (10+2) marksheet.
         <br>
         Marks obtained in 10+2 examination.
     </h3>
+  
         <div class="marks">
                 <div>
-                    <br><label><b>Maths  :</b></label> 
-                    &nbsp;&nbsp;<input type="number" name="math" placeholder="Enter your Marks" required>
+                    <br><label><b> Maths  :</b></label> 
+                    &nbsp;&nbsp;<input type="number" name="math" placeholder="Enter your Marks" min="60" max="100" required>
                 </div>
                 <div>
                     <br><label><b>Physics : </b></label> 
-                    &nbsp;&nbsp;<input type="number" name="physics" placeholder="Enter your Marks" required>
+                    &nbsp;&nbsp;<input type="number" name="physics" placeholder="Enter your Marks" min="60" max="100" required>
                 </div>
                 <div><br><label><b> Chemistry :</b></label>
-                    &nbsp;&nbsp;<input type="number" name="chem" placeholder="Enter your Marks" required>
+                    &nbsp;&nbsp;<input type="number" name="chem" placeholder="Enter your Marks" min="60" max="100" required>
                 </div>
                 <div><br><label><b>Computer Science/Biology :</b></label>
-                     &nbsp;&nbsp;<input type="number" name="comp" placeholder="Enter your Marks" required>
+                     &nbsp;&nbsp;<input type="number" name="comp" placeholder="Enter your Marks" min="60" max="100" required>
                 </div>
-                <div>
+                <!--<div>
                     <br><label><b>Are you eligible? : </b></label>
                     &nbsp;&nbsp;<input type="checkbox" name="Myeligibility" checked>
-                </div><br>
+                </div><br>-->
+                <br>
                 <div class="div">
                     <label for="file"><b>Upload your (10+2) marksheet</b></label>
-                    <input type="file" name="file" id="file" required>
+                    <input type="file" name="markpdf" id="file" >
                 </div>
                 <div>
                     <br>
@@ -202,9 +202,17 @@
         </div>
         </form>
     </div>
-        </div>
+        
         <script>
             let admission= confirm("If you really want to get admission in FIEM. Please fill the form !!");
+            var uploadField = document.getElementById("file");
+
+            uploadField.onchange = function() {
+                if(this.files[0].size > 5000000){
+                   alert("File is too big!");
+                   this.value = "";
+                };
+            };
           </script>
 </body>
 </html>

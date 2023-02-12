@@ -1,4 +1,4 @@
-package LoginServlet;
+package Servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -41,6 +41,7 @@ public class LoginServ extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
+			RequestDispatcher rd = null;
 			Connection con = jdbcutil.getConnection();
 			String user = request.getParameter("Uname");
 			String pass = request.getParameter("Pass");
@@ -70,14 +71,37 @@ public class LoginServ extends HttpServlet {
 	                
 	                Cookie fname = new Cookie("fname", firstname);
 	                Cookie lname = new Cookie("lname",lastname);
+	                Cookie email = new Cookie("email",user);
 	                response.addCookie(fname);
 	                response.addCookie(lname);
+	                response.addCookie(email);
+	                if(type.equalsIgnoreCase("student"))
+	                {
 
-				RequestDispatcher rd = request.getRequestDispatcher("Student.html");
-				rd.forward(request, response);
+				 rd = request.getRequestDispatcher("Student.jsp");
+				//rd.forward(request, response);
                
 
-			} else {
+			
+			}
+	                else if(type.equalsIgnoreCase("faculty"))
+	                {
+	                	 rd = request.getRequestDispatcher("faculty.html");
+	    				//rd.forward(request, response);
+	                   
+
+	                }
+	                else if(type.equalsIgnoreCase("admin"))
+	                {
+	                	 rd = request.getRequestDispatcher("admin.html");
+	    				//rd.forward(request, response);
+	                   
+
+	                }
+	                rd.forward(request, response);
+	                    
+			}
+	                else {
 				response.setContentType("text/html");
 				PrintWriter out = response.getWriter();
 				out.println("<script type='text/javascript'>");

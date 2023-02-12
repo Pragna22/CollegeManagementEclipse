@@ -1,3 +1,11 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import=" gettersetter.details" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="javax.servlet.http.Cookie" %>
+<
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -130,7 +138,91 @@ img {
             
             
          }
+
+        
+         @mixin object-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+  input {
+    display: none;
+  }
   
+ 
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+label {
+    cursor: default;
+}
+
+ 
+  
+
+
+
+body {
+  height: 100vh;
+
+  @include object-center;
+}
+  a:hover {
+    text-decoration: none;
+  }
+
+
+.profile-pic {
+  color: transparent;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: all 0.3s ease;
+  float:left;
+}
+.profile-pic input {
+  display: none;
+}
+.profile-pic img {
+  position: absolute;
+  object-fit: cover;
+  width: 165px;
+  height: 165px;
+  box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.35);
+  border-radius: 100px;
+  z-index: 0;
+}
+.profile-pic .-label {
+  cursor: pointer;
+  height: 165px;
+  width: 165px;
+}
+.profile-pic:hover .-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10000;
+  color: #fafafa;
+  transition: background-color 0.2s ease-in-out;
+  border-radius: 100px;
+  margin-bottom: 0;
+}
+.profile-pic span {
+  display: inline-flex;
+  padding: 0.2em;
+  height: 2em;
+}
     </style>
 </head>
 <body>
@@ -161,11 +253,19 @@ img {
      <a href="About.html" class="hre">About</a> 
      </div> 
      <br>
+
      <div class="student_profile">
         <div class="container">      
-        <div class="image">
-           <img class="profile_img" src="stu.jpg" alt="">
-    </div>
+       <form method="Post" action="Profile_Pic">      
+<div class="profile-pic">
+  <label class="-label" for="file">
+    <span class="glyphicon glyphicon-camera"></span>
+    <span>Change Image</span>
+  </label>
+ < <input id="file" type="file" name="pic" onchange="loadFile(event)" />
+  <img src="stu.jpg" id="output" width="200" />
+</div>
+</form>
         <div class="head">
         <h1><marquee>FUTURE INSTITUTE OF ENGINEERING & MANAGEMENT</marquee></h1>
     </div>
@@ -175,8 +275,7 @@ img {
         <div class="name" id="name">
          
         </div><br><br><br><br><br><br>
-        
-        <script>
+         <script>
         
         function getCookie(name) {
         	  var value = "; " + document.cookie;
@@ -191,48 +290,202 @@ img {
         document.getElementById("name").innerHTML = name;
 
         </script>
+  
         <button type="button" class="collapsible">Student Details</button>
     <div class="content">
         <h3 class="mb-0"><i class="far fa-clone pr-1"></i>General Information</h3>
+        <%
+String email = "";
+Cookie[] cookies = request.getCookies();
+if (cookies != null) {
+  for (Cookie cookie : cookies) {
+    if (cookie.getName().equals("email")) {
+      email = cookie.getValue();
+      break;
+      
+    }
+    
+  }
+  email = "\"" + email + "\"";
+  System.out.println("email is "+email);
+
+}
+  Connection conn = null;
+  PreparedStatement statement = null;
+  ResultSet resultSet = null;
+  final String DRIVER = "com.mysql.cj.jdbc.Driver";
+  final String URL = "jdbc:mysql://127.0.0.1:3306/college_project";
+   final String USERNAME = "root";
+   final String PASSWORD = "Pragna@05";
+  ArrayList<details> detailsList = new ArrayList<details>();
+
+  try {
+    Class.forName("com.mysql.cj.jdbc.Driver");
+    conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+    statement = conn.prepareStatement("SELECT *  FROM student_details where email= "+email);
+	System.out.println("query is "+statement);
+    resultSet = statement.executeQuery();
+
+
+    while (resultSet.next()) {
+      details detail = new details(0,"a","b","c",2);
+      detail.setEmail(resultSet.getString("email"));
+      detail.setSem(resultSet.getInt("sem"));
+      detail.setDept(resultSet.getString("dept"));
+      detail.setCroll(resultSet.getString("croll"));
+      detail.setUroll(resultSet.getInt("uroll"));
+      System.out.println("Email is "+detail.getEmail());
+      detailsList.add(detail);
+    }
+
+    request.setAttribute("detailsList", detailsList);
+  } catch (Exception e) {
+    e.printStackTrace();
+  }
+%>
     <table class="table table-bordered">
         <tr>
-          <th width="30%">Roll</th>
+          <th width="30%">Class Roll</th>
           <td width="2%">:</td>
-          <td>20CSE118</td>
+             <%
+    try {
+      for (details det : detailsList) {
+  %>
+ 
+   
+    <td><%= det.getCroll() %></td>
+
+  <%
+      }
+    } catch (Exception e) {
+  %>
+  <tr>
+    <td colspan="2">An error occurred while processing the request: <%= e.getMessage() %></td>
+  </tr>
+  <%
+    }
+  %>
         </tr>
         <tr>
-          <th width="30%">Academic Year	</th>
+          <th width="30%">Makaut Roll</th>
           <td width="2%">:</td>
-          <td>2020</td>
+             <%
+    try {
+      for (details det : detailsList) {
+  %>
+ 
+   
+    <td><%= det.getUroll() %></td>
+
+  <%
+      }
+    } catch (Exception e) {
+  %>
+  <tr>
+    <td colspan="2">An error occurred while processing the request: <%= e.getMessage() %></td>
+  </tr>
+  <%
+    }
+  %>
         </tr>
         <tr>
-          <th width="30%">Gender</th>
+          <th width="30%">Semester	</th>
           <td width="2%">:</td>
-          <td>Female</td>
+             <%
+    try {
+      for (details det : detailsList) {
+  %>
+ 
+   
+    <td><%= det.getSem() %></td>
+
+  <%
+      }
+    } catch (Exception e) {
+  %>
+  <tr>
+    <td colspan="2">An error occurred while processing the request: <%= e.getMessage() %></td>
+  </tr>
+  <%
+    }
+  %>
         </tr>
+
         <tr>
             <th width="30%">Department</th>
             <td width="2%">:</td>
-            <td>CSE</td>
+             <%
+    try {
+      for (details det : detailsList) {
+  %>
+ 
+   
+    <td><%= det.getDept() %></td>
+
+  <%
+      }
+    } catch (Exception e) {
+  %>
+  <tr>
+    <td colspan="2">An error occurred while processing the request: <%= e.getMessage() %></td>
+  </tr>
+  <%
+    }
+  %>
           </tr>
       </table>
       <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Contact Information</h3>
       <table class="table table-bordered">
-        <tr>
-          <th width="30%">Phone</th>
-          <td width="2%">:</td>
-          <td>8637839320</td>
-        </tr>
+ 
         <tr>
           <th width="30%">Email	</th>
           <td width="2%">:</td>
-          <td>pragnadutta5@gmail.com</td>
-        </tr>
-        <tr>
-          <th width="30%">Address</th>
+         
+      
+         <%
+    try {
+      for (details det : detailsList) {
+  %>
+ 
+   
+    <td><%= det.getEmail() %></td>
+
+  <%
+      }
+    } catch (Exception e) {
+  %>
+  <tr>
+    <td colspan="2">An error occurred while processing the request: <%= e.getMessage() %></td>
+  </tr>
+  <%
+    }
+  %>
+  </tr>
+    <tr>
+          <th width="30%">Phone	</th>
           <td width="2%">:</td>
-          <td>Garia</td>
-        </tr>
+         
+      
+         <%
+    try {
+      for (details det : detailsList) {
+  %>
+ 
+   
+    <td><%= "8660499774" %></td>
+
+  <%
+      }
+    } catch (Exception e) {
+  %>
+  <tr>
+    <td colspan="2">An error occurred while processing the request: <%= e.getMessage() %></td>
+  </tr>
+  <%
+    }
+  %>
+  </tr>
+        
       </table>
       <div class="edit">
       <br><a href="studentedit.html">Edit</a>
@@ -247,11 +500,7 @@ img {
       <button type="button" class="collapsible">Subject</button>
       <div class="content">
           
-    </div>
-            
-      
-        
-            
+    </div>     
       </div>
         <script>
             var coll = document.getElementsByClassName("collapsible");
@@ -268,6 +517,13 @@ img {
                 }
               });
             }
+           
+
+             var loadFile = function (event) {
+             var image = document.getElementById("output");
+             image.src = URL.createObjectURL(event.target.files[0]);
+            };
+
             </script>
         
     </div>

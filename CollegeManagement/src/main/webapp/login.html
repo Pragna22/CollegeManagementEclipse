@@ -3,13 +3,13 @@
 	<title>
 		Login
 	</title>
-<link rel="stylesheet" href="navbar.css">	
+<link rel="stylesheet" href="navbar.css">   
 
-	<style >
-		.topnav,#home a{
- 				 background-color: #008b8b;
- 				 overflow: hidden;
-				}
+    <style >
+        .topnav,#home a{
+                 background-color: #008b8b;
+                 overflow: hidden;
+                }
         h1{
             text-align: center;
             font-size: 30px;
@@ -86,10 +86,7 @@
 
     </style>
 </head>
-
-
 <body>
-
         <div id="logo">
     <img src="fiem.jpg">
   </div>
@@ -122,7 +119,7 @@
   </div> 
 	<h1> WELCOME TO FUTURE INSTITUTE OF ENGINEERING AND MANAGEMENT </h1>
 	<hr>
-	<h2>Student Login</h2>
+	<h2>User Login</h2>
 	<br>  
     <div class="login">    
     <form id="login" method="get" action="LoginServ">    
@@ -134,16 +131,17 @@
         <label><b>Enter Password
         </b>
         </label>   
-        <input type="password" placeholder="Enter Password" name="Pass" required/> 
+        <input type="password" placeholder="Enter Password" name="Pass" required/>   
         <br><br>    
         <label for="type">Type:</label>
         <br>
         <select id="type" name="type">
             <option value="faculty">Faculty</option>
             <option value="student">Student</option>
+            <option value="admin">Admin</option>
         </select>  
         <br><br>     
-        <input type="checkbox" id="check">    
+        <input type="checkbox" id="check"/>    
         <span>Remember me</span>    
         <br><br>    
         Forgot <a href="password.html" class="hre">Password</a>  
