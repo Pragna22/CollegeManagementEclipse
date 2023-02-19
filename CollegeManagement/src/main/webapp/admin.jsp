@@ -71,12 +71,9 @@
 }
 
 .content {
-  padding: 0 18px;
   display: none;
   overflow: hidden;
-  background-color: #f1f1f1;
-  width: 315px;
-  padding: 5px 10px 10px 10px;
+ 
 }
 	p{
 		font-size: 20px;
@@ -85,6 +82,34 @@
     .log{
         text-align: center;
     }
+     .gallery {
+            box-sizing: border-box; 
+            width: 170px;
+           padding: 10px;
+                padding: 10px;
+                padding-bottom: 10px;
+                border-radius: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            background: yellow; 
+            float: left;
+            text-align: center; 
+            
+         }
+         .notice {
+            box-sizing: border-box; 
+            width: 270px;
+           padding: 10px;
+                padding: 10px;
+                padding-bottom: 10px;
+                border-radius: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            background: yellow; 
+            float: left;
+            text-align: center; 
+            
+         }
     </style>
 </head>
 <body>
@@ -97,7 +122,7 @@
     <div class="topnav">
    
      
-     <a href="login.html" target="_blank">Login</a>
+     <a href="login.html" target="_blank">Logout</a>
      <div class="dropdown">
        <button class="dropbtn">Extracurricular
          <i class="fa fa-caret-down"></i>
@@ -109,11 +134,11 @@
          <a href="sportivo.html" target="_blank">Sportivo</a>
        </div>
      </div>
-     <a href="#Notice">Notice Board</a>
+     <a href="notice.jsp">Notice Board</a>
      <!--<a href="#club" target="_blank">Extracurricular</a>-->
      
      <a href="courses.html" target="_blank">Streams</a>
-     <a href="#gallery">Gallery</a>
+     <a href="gallery.jspl">Gallery</a>
      <a href="contact.html">Contact</a>
      <a href="About.html" class="hre">About</a> 
      </div><br>
@@ -136,8 +161,14 @@
       </div>
       <br><br>
       <button type="button" class="collapsible"><b>Management</b></button>
-    <div class="content">
-        <p> abc </p>
+      <div class="content">
+      <br>
+    <div class="gallery">
+     <a href="galleryedit.jsp" target="_blank">Add to Gallery</a>
+      </div>
+      <div class="notice">
+     <a href="noticeedit.jsp" target="_blank">Add to Notice Board</a>
+    </div>
       </div>
       <script>
         var coll = document.getElementsByClassName("collapsible");

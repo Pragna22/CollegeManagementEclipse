@@ -37,7 +37,7 @@ public class LoginServ extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
@@ -46,12 +46,18 @@ public class LoginServ extends HttpServlet {
 			String user = request.getParameter("Uname");
 			String pass = request.getParameter("Pass");
 			String type = request.getParameter("type");
+			//String uid = request.getParameter("uid");
 			PreparedStatement ps = con
 					.prepareStatement("select email,pass,type from users where email=? and pass=? and type=?");
 			
 			ps.setString(1, user);
 			ps.setString(2, pass);
 			ps.setString(3, type);
+			//ps.setString(4, uid);
+			System.out.println(user);
+			System.out.println(pass);
+			System.out.println(type);
+			
 			ResultSet rs = ps.executeQuery();
 			
 			PreparedStatement disp = con
@@ -59,6 +65,7 @@ public class LoginServ extends HttpServlet {
 			disp.setString(1, user);
 			disp.setString(2, pass);
 			disp.setString(3, type);
+			//disp.setString(4, uid);
 			ResultSet disp_res = disp.executeQuery();
 			
 			if (rs.next() && disp_res.next()) {
@@ -72,6 +79,7 @@ public class LoginServ extends HttpServlet {
 	                Cookie fname = new Cookie("fname", firstname);
 	                Cookie lname = new Cookie("lname",lastname);
 	                Cookie email = new Cookie("email",user);
+	                
 	                response.addCookie(fname);
 	                response.addCookie(lname);
 	                response.addCookie(email);
@@ -86,14 +94,14 @@ public class LoginServ extends HttpServlet {
 			}
 	                else if(type.equalsIgnoreCase("faculty"))
 	                {
-	                	 rd = request.getRequestDispatcher("faculty.html");
+	                	 rd = request.getRequestDispatcher("faculty.jsp");
 	    				//rd.forward(request, response);
 	                   
 
 	                }
 	                else if(type.equalsIgnoreCase("admin"))
 	                {
-	                	 rd = request.getRequestDispatcher("admin.html");
+	                	 rd = request.getRequestDispatcher("admin.jsp");
 	    				//rd.forward(request, response);
 	                   
 

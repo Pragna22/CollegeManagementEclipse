@@ -89,8 +89,9 @@ public class register extends HttpServlet {
 			if (i > 0) {
 			if(type.equalsIgnoreCase("Student"))
 			{
-				PreparedStatement stu_detail= con.prepareStatement("insert into student_details(email) values(?)");
+				PreparedStatement stu_detail= con.prepareStatement("insert into student_details(email,uid) values(?,?)");
 				stu_detail.setString(1, email);
+				stu_detail.setString(2, uid);
 				stu_detail.executeUpdate();
 			}
 

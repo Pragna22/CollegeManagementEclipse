@@ -31,7 +31,7 @@ public class ECE extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
-		String uroll = request.getParameter("uroll");
+		String uid = request.getParameter("uid");
 		String cs1 = request.getParameter("cs1");
 		String cs2 = request.getParameter("cs2");
 		String cs3 = request.getParameter("cs3");
@@ -44,14 +44,10 @@ public class ECE extends HttpServlet {
 		String ds2 = request.getParameter("ds2");
 		String ds3 = request.getParameter("ds3");
 		String ds4 = request.getParameter("ds4");
-		String hcidm = request.getParameter("hcidm");
-		String mb = request.getParameter("mb");
 		String mb1 = request.getParameter("mb1");
 		String mb2 = request.getParameter("mb2");
 		String mb3 = request.getParameter("mb3");
 		String mb4 = request.getParameter("mb4");
-		String hrdnm = request.getParameter("hrdnm");
-		String os = request.getParameter("os");
 		String os1 = request.getParameter("os1");
 		String os2 = request.getParameter("os2");
 		String os3 = request.getParameter("os3");
@@ -68,8 +64,8 @@ public class ECE extends HttpServlet {
 		try {
 			// Class.forName ("com.mysql.jdbc.Driver");
 			Connection con = jdbcutil.getConnection();
-			PreparedStatement ps = con.prepareStatement("insert into marks2 values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-			ps.setString(1, uroll);
+			PreparedStatement ps = con.prepareStatement("insert into marks2 values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+			ps.setString(1, uid);
 			ps.setString(2, cs1);
 			ps.setString(3, cs2);
 			ps.setString(4, cs3);
@@ -82,29 +78,25 @@ public class ECE extends HttpServlet {
 			ps.setString(11, ds2);
 			ps.setString(12, ds3);
 			ps.setString(13, ds4);
-			ps.setString(14, hcidm);
-			ps.setString(15, mb);
-			ps.setString(16, mb1);
-			ps.setString(17, mb2);
-			ps.setString(18, mb3);
-			ps.setString(19, mb4);
-			ps.setString(20, hrdnm);
-			ps.setString(21, os);
-			ps.setString(22, os1);
-			ps.setString(23, os2);
-			ps.setString(24, os3);
-			ps.setString(25, os4);
-			ps.setString(26, csp1);
-			ps.setString(27, csp2);
-			ps.setString(28, cnp1);
-			ps.setString(29, cnp2);
+			ps.setString(14, mb1);
+			ps.setString(15, mb2);
+			ps.setString(16, mb3);
+			ps.setString(17, mb4);
+			ps.setString(18, os1);
+			ps.setString(19, os2);
+			ps.setString(20, os3);
+			ps.setString(21, os4);
+			ps.setString(22, csp1);
+			ps.setString(23, csp2);
+			ps.setString(24, cnp1);
+			ps.setString(25, cnp2);
 		
 			
-			if (!uroll.isEmpty() && !cs1.isEmpty() && !cs2.isEmpty() && !cs3.isEmpty() && !cs4.isEmpty() && !cn1.isEmpty()
+			if (!uid.isEmpty() && !cs1.isEmpty() && !cs2.isEmpty() && !cs3.isEmpty() && !cs4.isEmpty() && !cn1.isEmpty()
 					&& !cn2.isEmpty() && !cn3.isEmpty() && !cn4.isEmpty() && !ds1.isEmpty() 
-					&& !ds2.isEmpty() && !ds3.isEmpty() && !ds4.isEmpty() && !hcidm.isEmpty() && !mb.isEmpty() 
-					&& !mb1.isEmpty() && !mb2.isEmpty() && !mb3.isEmpty() && !mb4.isEmpty() && !hrdnm.isEmpty() 
-					&& !os.isEmpty() && !os1.isEmpty() && !os2.isEmpty()&& !os3.isEmpty() && !os4.isEmpty() 
+					&& !ds2.isEmpty() && !ds3.isEmpty() && !ds4.isEmpty() 
+					&& !mb1.isEmpty() && !mb2.isEmpty() && !mb3.isEmpty() && !mb4.isEmpty()
+					&& !os1.isEmpty() && !os2.isEmpty()&& !os3.isEmpty() && !os4.isEmpty() 
 					&& !csp1.isEmpty() && !csp2.isEmpty() && !cnp1.isEmpty() && !cnp2.isEmpty()) {
 
 				i = ps.executeUpdate();
@@ -116,7 +108,7 @@ public class ECE extends HttpServlet {
 				PrintWriter out = response.getWriter();
 				out.println("<script type='text/javascript'>");
 				out.println("alert('Details Added!');");
-				out.println("window.location.href = 'faculty.html';");
+				out.println("window.location.href = 'faculty.jsp';");
 
 				out.println("</script>");
 
@@ -128,7 +120,7 @@ public class ECE extends HttpServlet {
 				PrintWriter out = response.getWriter();
 				out.println("<script type='text/javascript'>");
 				out.println("alert('Something Went Wrong! Try Again');");
-				out.println("window.location.href = 'marks.html';");
+				out.println("window.location.href = 'marks.jsp';");
 
 				out.println("</script>");
 

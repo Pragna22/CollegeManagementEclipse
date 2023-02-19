@@ -1,3 +1,8 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import=" gettersetter.facdetails" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="javax.servlet.http.Cookie" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -215,6 +220,9 @@ body {
   padding: 0.2em;
   height: 2em;
 }
+table,th,td{
+border: 1px solid black;
+}
     </style>
 </head>
 <body>
@@ -288,56 +296,167 @@ body {
         document.getElementById("name").innerHTML = name;
 
         </script>
+          
         <button type="button" class="collapsible">Faculty Details</button>
     <div class="content">
         <h3 class="mb-0"><i class="far fa-clone pr-1"></i>General Information</h3>
+                <%
+String email = "";
+Cookie[] cookies = request.getCookies();
+if (cookies != null) {
+  for (Cookie cookie : cookies) {
+    if (cookie.getName().equals("email")) {
+      email = cookie.getValue();
+      break;
+      
+    }
+    
+  }
+  email = "\"" + email + "\"";
+  System.out.println("email is "+email);
+
+}
+else
+{
+	System.out.println("Cookie is null");
+	  response.sendRedirect("faculty.jsp");
+}
+  Connection conn = null;
+  PreparedStatement statement = null;
+  ResultSet resultSet = null;
+  final String DRIVER = "com.mysql.cj.jdbc.Driver";
+  final String URL = "jdbc:mysql://127.0.0.1:3306/college_project";
+   final String USERNAME = "root";
+   final String PASSWORD = "Pragna@05";
+  ArrayList<facdetails> detailsList = new ArrayList<facdetails>();
+
+  try {
+    Class.forName("com.mysql.cj.jdbc.Driver");
+    conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+    statement = conn.prepareStatement("SELECT *  FROM fac_details where email= "+email);
+	System.out.println("query is "+statement);
+    resultSet = statement.executeQuery();
+
+
+    while (resultSet.next()) {
+      facdetails detail = new facdetails(0,"a","b","c");
+      detail.setEmail(resultSet.getString("email"));
+      detail.setQual(resultSet.getString("qual"));
+      detail.setYrs(resultSet.getInt("yrs"));
+      detail.setPhn(resultSet.getString("phn_no"));
+      System.out.println("Email is "+detail.getEmail());
+      detailsList.add(detail);
+    }
+
+    request.setAttribute("detailsList", detailsList);
+  } catch (Exception e) {
+    e.printStackTrace();
+  }
+%>
+        
     <table class="table table-bordered">
         <tr>
-          <th width="30%">Roll</th>
+          <th width="30%">Qualification</th>
           <td width="2%">:</td>
-          <td>20CSE118</td>
+           <%
+    try {
+      for (facdetails det : detailsList) {
+  %>
+ 
+   
+    <td><%= det.getQual() %></td>
+
+  <%
+      }
+    } catch (Exception e) {
+  %>
+  <tr>
+    <td colspan="2">An error occurred while processing the request: <%= e.getMessage() %></td>
+  </tr>
+  <%
+    }
+  %>
         </tr>
         <tr>
-          <th width="30%">Academic Year	</th>
+          <th width="30%">Years Of Experience	</th>
           <td width="2%">:</td>
-          <td>2020</td>
+                     <%
+    try {
+      for (facdetails det : detailsList) {
+  %>
+ 
+   
+    <td><%= det.getYrs() %></td>
+
+  <%
+      }
+    } catch (Exception e) {
+  %>
+  <tr>
+    <td colspan="2">An error occurred while processing the request: <%= e.getMessage() %></td>
+  </tr>
+  <%
+    }
+  %>
+          
         </tr>
-        <tr>
-          <th width="30%">Gender</th>
-          <td width="2%">:</td>
-          <td>Female</td>
-        </tr>
-        <tr>
-            <th width="30%">Department</th>
-            <td width="2%">:</td>
-            <td>CSE</td>
-          </tr>
       </table>
       <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Contact Information</h3>
       <table class="table table-bordered">
         <tr>
           <th width="30%">Phone</th>
           <td width="2%">:</td>
-          <td>8637839320</td>
+                   <%
+    try {
+      for (facdetails det : detailsList) {
+  %>
+ 
+   
+    <td><%= det.getPhn() %></td>
+
+  <%
+      }
+    } catch (Exception e) {
+  %>
+  <tr>
+    <td colspan="2">An error occurred while processing the request: <%= e.getMessage() %></td>
+  </tr>
+  <%
+    }
+  %>
+        
         </tr>
         <tr>
           <th width="30%">Email	</th>
           <td width="2%">:</td>
-          <td>pragnadutta5@gmail.com</td>
-        </tr>
-        <tr>
-          <th width="30%">Address</th>
-          <td width="2%">:</td>
-          <td>Garia</td>
+                   <%
+    try {
+      for (facdetails det : detailsList) {
+  %>
+ 
+   
+    <td><%= det.getEmail() %></td>
+
+  <%
+      }
+    } catch (Exception e) {
+  %>
+  <tr>
+    <td colspan="2">An error occurred while processing the request: <%= e.getMessage() %></td>
+  </tr>
+  <%
+    }
+  %>
+        
         </tr>
       </table>
       <div class="edit">
-      <br><a href="facedit.html">Edit</a>
+      <br><a href="facedit.jsp">Edit</a>
     </div>
     </div>
     <br><br>
       <button type="button" class="collapsible"> 
-        <a href="marks.html">Marks Upload</a>
+        <a href="marks.jsp">Marks Upload</a>
       </button>
       <div class="content">
   

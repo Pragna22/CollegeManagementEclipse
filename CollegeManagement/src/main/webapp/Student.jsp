@@ -2,6 +2,7 @@
 <%@ page import=" gettersetter.details" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="javax.servlet.http.Cookie" %>
+<%@ page import="Database.jdbcutil" %>
 <
 
 
@@ -223,9 +224,13 @@ body {
   padding: 0.2em;
   height: 2em;
 }
+table,th,td{
+border: 1px solid black;
+}
     </style>
 </head>
 <body>
+
     <div id="home">
         <a href="index.html" target="_blank">Home</a>
      </div>
@@ -244,11 +249,11 @@ body {
          <a href="sportivo.html" target="_blank">Sportivo</a>
        </div>
      </div>
-     <a href="#Notice">Notice Board</a>
+     <a href="notice.jsp">Notice Board</a>
      <!--<a href="#club" target="_blank">Extracurricular</a>-->
      
      <a href="courses.html" target="_blank">Streams</a>
-     <a href="#gallery">Gallery</a>
+     <a href="gallery.jspl">Gallery</a>
      <a href="contact.html">Contact</a>
      <a href="About.html" class="hre">About</a> 
      </div> 
@@ -290,62 +295,86 @@ body {
         document.getElementById("name").innerHTML = name;
 
         </script>
-  
         <button type="button" class="collapsible">Student Details</button>
     <div class="content">
         <h3 class="mb-0"><i class="far fa-clone pr-1"></i>General Information</h3>
         <%
 String email = "";
+ String user_uid;
 Cookie[] cookies = request.getCookies();
 if (cookies != null) {
   for (Cookie cookie : cookies) {
     if (cookie.getName().equals("email")) {
       email = cookie.getValue();
       break;
-      
-    }
+      }
     
-  }
+}
   email = "\"" + email + "\"";
   System.out.println("email is "+email);
 
 }
+else
+{
+	System.out.println("Cookie is null");
+	  response.sendRedirect("Student.jsp");
+}
   Connection conn = null;
   PreparedStatement statement = null;
   ResultSet resultSet = null;
-  final String DRIVER = "com.mysql.cj.jdbc.Driver";
-  final String URL = "jdbc:mysql://127.0.0.1:3306/college_project";
-   final String USERNAME = "root";
-   final String PASSWORD = "Pragna@05";
+  Connection conn1 = null;
+  PreparedStatement statement1 = null;
+  ResultSet resultSet1 = null;
+  //final String DRIVER = "com.mysql.cj.jdbc.Driver";
+  //final String URL = "jdbc:mysql://127.0.0.1:3306/college_project";
+   //final String USERNAME = "root";
+   //final String PASSWORD = "Pragna@05";
   ArrayList<details> detailsList = new ArrayList<details>();
+  //ArrayList<UID> detailsLists = new ArrayList<UID>();
+
 
   try {
     Class.forName("com.mysql.cj.jdbc.Driver");
-    conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+    //conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+    conn= jdbcutil.getConnection();
     statement = conn.prepareStatement("SELECT *  FROM student_details where email= "+email);
-	System.out.println("query is "+statement);
+    statement1 = conn.prepareStatement("SELECT uid FROM users where email= "+email);
+	System.out.println("query 1 is "+statement);
+	System.out.println("query 2 is "+statement1);
     resultSet = statement.executeQuery();
-
-
-    while (resultSet.next()) {
-      details detail = new details(0,"a","b","c",2);
+    resultSet1 = statement1.executeQuery();
+    
+	
+    while (resultSet.next() && resultSet1.next()) {
+      details detail = new details("a","b","c","d","e","f","g","h");
       detail.setEmail(resultSet.getString("email"));
-      detail.setSem(resultSet.getInt("sem"));
+      detail.setFname(resultSet.getString("fname"));
+      detail.setMname(resultSet.getString("mname"));
       detail.setDept(resultSet.getString("dept"));
-      detail.setCroll(resultSet.getString("croll"));
-      detail.setUroll(resultSet.getInt("uroll"));
+      detail.setAddress(resultSet.getString("address"));
+      detail.setBgroup(resultSet.getString("b_group"));
+      detail.setPhn(resultSet.getString("phn"));
+      detail.setUid(resultSet1.getString("uid"));
       System.out.println("Email is "+detail.getEmail());
+      //user_uid=detail.getUid();
+      pageContext.setAttribute("user_uid",detail.getUid());
       detailsList.add(detail);
+      
+    
     }
-
+    
+    //System.out.println("uid is "+resultSet1.getString("uid"));
     request.setAttribute("detailsList", detailsList);
-  } catch (Exception e) {
+	//request.setAttribute("detailsLists", detailsLists);
+  }
+
+  catch (Exception e) {
     e.printStackTrace();
   }
 %>
     <table class="table table-bordered">
         <tr>
-          <th width="30%">Class Roll</th>
+          <th width="30%">Father's Name</th>
           <td width="2%">:</td>
              <%
     try {
@@ -353,7 +382,7 @@ if (cookies != null) {
   %>
  
    
-    <td><%= det.getCroll() %></td>
+    <td><%= det.getFname() %></td>
 
   <%
       }
@@ -367,7 +396,7 @@ if (cookies != null) {
   %>
         </tr>
         <tr>
-          <th width="30%">Makaut Roll</th>
+          <th width="30%">Mother's Name</th>
           <td width="2%">:</td>
              <%
     try {
@@ -375,7 +404,7 @@ if (cookies != null) {
   %>
  
    
-    <td><%= det.getUroll() %></td>
+    <td><%= det.getMname() %></td>
 
   <%
       }
@@ -389,7 +418,7 @@ if (cookies != null) {
   %>
         </tr>
         <tr>
-          <th width="30%">Semester	</th>
+          <th width="30%">Blood Group	</th>
           <td width="2%">:</td>
              <%
     try {
@@ -397,7 +426,7 @@ if (cookies != null) {
   %>
  
    
-    <td><%= det.getSem() %></td>
+    <td><%= det.getBgroup() %></td>
 
   <%
       }
@@ -433,9 +462,54 @@ if (cookies != null) {
     }
   %>
           </tr>
+          <tr>
+            <th width="30%">UID</th>
+            <td width="2%">:</td>
+            <%
+    try {
+      for (details det : detailsList) {
+  %>
+ 
+   
+    <td><%= det.getUid() %></td>
+
+  <%
+      }
+    } catch (Exception e) {
+  %>
+  <tr>
+    <td colspan="2">An error occurred while processing the request: <%= e.getMessage() %></td>
+  </tr>
+  <%
+    }
+  %>
       </table>
       <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Contact Information</h3>
       <table class="table table-bordered">
+ <tr>
+          <th width="30%">Address	</th>
+          <td width="2%">:</td>
+         
+      
+         <%
+    try {
+      for (details det : detailsList) {
+  %>
+ 
+   
+    <td><%= det.getAddress() %></td>
+
+  <%
+      }
+    } catch (Exception e) {
+  %>
+  <tr>
+    <td colspan="2">An error occurred while processing the request: <%= e.getMessage() %></td>
+  </tr>
+  <%
+    }
+  %>
+  </tr>
  
         <tr>
           <th width="30%">Email	</th>
@@ -464,15 +538,13 @@ if (cookies != null) {
     <tr>
           <th width="30%">Phone	</th>
           <td width="2%">:</td>
-         
-      
-         <%
+        <%
     try {
       for (details det : detailsList) {
   %>
  
    
-    <td><%= "8660499774" %></td>
+    <td><%= det.getPhn() %></td>
 
   <%
       }
@@ -487,16 +559,18 @@ if (cookies != null) {
   </tr>
         
       </table>
+    
       <div class="edit">
-      <br><a href="studentedit.html">Edit</a>
+      <br><a href="studentedit.jsp?uid=<%= pageContext.getAttribute("user_uid") %>">Edit</a>
     </div>
     </div>
     <br><br>
-      <button type="button" class="collapsible">Marks</button>
+     <form id="stu_marks" name="stu_marks" method="Get" action="stu_marks">
+      <button type="button" class="collapsible"><a href="Stu_marks.jsp">Marks</a></button>
       <div class="content">
-  
+       <a href="Stu_marks.jsp"></a>
       </div>
-      <br><br>
+      </form>
       <button type="button" class="collapsible">Subject</button>
       <div class="content">
           

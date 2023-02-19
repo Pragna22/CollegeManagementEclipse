@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ECE</title>
+  <title>CSE</title>
   <link rel="stylesheet" href="navbar.css">
   <style>
     .topnav,#home a{
@@ -119,7 +119,7 @@ h3{
   <div class="topnav">
  
    
-   <a href="login.html" target="_blank">Login</a>
+   <a href="login.html" target="_blank">Logout</a>
    <div class="dropdown">
      <button class="dropbtn">Extracurricular
        <i class="fa fa-caret-down"></i>
@@ -141,11 +141,26 @@ h3{
    </div><br>
    <h1><b>ADD MARKS </b></h1>
    <div class="det">
-    <form id="ECE" method="Post" action="ECE">
-      <br>  <div class="roll">
-        <label for="uroll"><b>Makaut Roll No.</b></label>
-        <input type="number" name="uroll" max="500000000000000" required>
-      </div><br><br>
+    <form id="CSE" method="Post" action="CSE">
+        <br>  <div class="roll">
+        <label for="uid"><b>Makaut Roll No.</b></label>
+        <input type="number" name="uid" max="500000000000000" required>
+      </div>
+       <table class="table table-bordered">
+        <tr>
+          <th width="0%">Name: </th>
+          <td width="2%">:</td>
+          </tr>
+           <tr>
+          <th width="30%">Email: </th>
+          <td width="2%">:</td>
+          </tr>
+           <tr>
+          <th width="30%">UID: </th>
+          <td width="2%">:</td>
+          </tr>
+          </table>
+        <br><br>
 		<!-- <h3>CA MARKS DETAILS</h3><br> -->
         <button type="button" class="collapsible"><b>CA MARKS DETAILS</b></button>
 	<div class="content">
@@ -160,28 +175,28 @@ h3{
               
             </tr><br>
             <tr>
-              <td>EC601(6277)</td>
-              <td>Control System and Instrumentation</td>
+              <td>PCC-CS601(6577)</td>
+              <td>DATABASE MANAGEMENT SYSTEMS</td>
               <td>
-                <label for="cs1"><b></b></label>
-                    <input type="number" name="cs1" id="cs1" min="0" max="25">
+                <label for="dms1"><b></b></label>
+                    <input type="number" name="dms1" id="dms1" min="0" max="25">
               </td>
               <td >
-                <label for="cs2"><b></b></label>
-                    <input type="number" name="cs2" id="cs2" min="0" max="25">
+                <label for="dms2"><b></b></label>
+                    <input type="number" name="dms2" id="dms2" min="0" max="25">
               </td>
               <td>
-                <label for="cs3"><b></b></label>
-                    <input type="number" name="cs3" id="cs3" min="0" max="25">
+                <label for="dms3"><b></b></label>
+                    <input type="number" name="dms3" id="dms3" min="0" max="25">
               </td>
               <td>
-                <label for="cs4"><b></b></label>
-                    <input type="number" name="cs4" id="cs4" min="0" max="25">
+                <label for="dms4"><b></b></label>
+                    <input type="number" name="dms4" id="dms4" min="0" max="25">
               </td>
             </tr>
             <tr>
-              <td>EC602(6296)</td>
-              <td>COMPUTER NETWORK</td>
+              <td>PCC-CS602(6596)</td>
+              <td>COMPUTER NETWORKS</td>
               <td>
                 <label for="cn1"><b></b></label>
                     <input type="number" name="cn1" id="cn1" min="0" max="25">
@@ -201,7 +216,7 @@ h3{
               
             </tr>
              <tr>
-              <td>HS-HU 601(6570)</td>
+              <td>PEC-IT601B(6590)</td>
               <td>DISTRIBUTED SYSTEMS</td>
               <td>
                 <label for="ds1"><b></b></label>
@@ -222,68 +237,49 @@ h3{
               
             </tr>
             <tr>
-             <td>
-             <select name="hcidm" id="hcidm">
-                                  <option value="PE-EC603A(6483)">PE-EC603A(6483)</option>
-                                  <option value="PE-EC603B(6486)">PE-EC603B(6486)</option>
-                              </select>
-             </td>
-                <td>
-              <select name="mb" id="mb">
-                                  <option value="INTRODUCTION TO MEMS">INTRODUCTION TO MEMS</option>
-                                  <option value="BIO-MEDICAL ELECTRONICS">BIO-MEDICAL ELECTRONICS</option>
-                              </select>
-              </td>
+              <td>PEC-IT602B(6584)</td>
+              <td>DATA MINING & DATA WAREHOUSE</td>
               <td>
-                <label for="mb1"><b></b></label>
-                    <input type="number" name="mb1" id="mb1" min="0" max="25">
+                <label for="dm1"><b></b></label>
+                    <input type="number" name="dm1" id="dm1" min="0" max="25">
               </td>
               <td >
-                <label for="mb2"><b></b></label>
-                    <input type="number" name="mb2" id="mb2" min="0" max="25">
+                <label for="dm2"><b></b></label>
+                    <input type="number" name="dm2" id="dm2" min="0" max="25">
               </td>
               <td>
-                <label for="mb3"><b></b></label>
-                    <input type="number" name="mb3" id="mb3" min="0" max="25">
+                <label for="dm3"><b></b></label>
+                    <input type="number" name="dm3" id="dm3" min="0" max="25">
               </td>
               <td>
-                <label for="mb4"><b></b></label>
-                    <input type="number" name="mb4" id="mb4" min="0" max="25">
+                <label for="dm4"><b></b></label>
+                    <input type="number" name="dm4" id="dm4" min="0" max="25">
+              </td>
+              
+              
+            </tr>
+              <tr>
+              <td>OEC-IT601A(6595)</td>
+              <td>NUMERICAL METHODS</td>
+              <td>
+                <label for="nm1"><b></b></label>
+                    <input type="number" name="nm1" id="nm1" min="0" max="25" >
+              </td>
+              <td >
+                <label for="nm2"><b></b></label>
+                    <input type="number" name="nm2" id="nm2" min="0" max="25">
+              </td>
+              <td>
+                <label for="nm3"><b></b></label>
+                    <input type="number" name="nm3" id="nm3" min="0" max="25">
+              </td>
+              <td>
+                <label for="dm4"><b></b></label>
+                    <input type="number" name="nm4" id="nm4" min="0" max="25">
               </td>
               
             </tr>
-            <tr>
-             <td>
-             <select name="hrdnm" id="hrdnm">
-                                  <option value="OEC-EC604A(6594)">OEC-EC604A(6594)</option>
-                                  <option value="OEC-EC604B(6593)">OEC-EC604B(6593)</option>
-                                  <option value="OEC-EC604C(6592)">OEC-EC604C(6592)</option>
-                              </select>
-             </td>
-                <td>
-              <select name="os" id="os">
-                                  <option value="ELECTRONICS MEASUREMENT & MEASURING INSTRUMENTS">ELECTRONICS MEASUREMENT & MEASURING INSTRUMENTS</option>
-                                  <option value="OPERATING SYSTEMS">OPERATING SYSTEMS</option>
-                                  <option value="OBJECT ORIENTED PROGRAMMING">OBJECT ORIENTED PROGRAMMING</option>
-                              </select>
-              </td>
-              <td>
-                <label for="os1"><b></b></label>
-                    <input type="number" name="os1" id="os1" min="0" max="25">
-              </td>
-              <td >
-                <label for="os2"><b></b></label>
-                    <input type="number" name="os2" id="os2" min="0" max="25">
-              </td>
-              <td>
-                <label for="os3"><b></b></label>
-                    <input type="number" name="os3" id="os3" min="0" max="25">
-              </td>
-              <td>
-                <label for="os4"><b></b></label>
-                    <input type="number" name="os4" id="os4" min="0" max="25">
-              </td>
-            </tr>
+           
           </table>
         </div><br>
 		<br><br>
@@ -299,20 +295,20 @@ h3{
               <th>PA 2</th>
             </tr><br>
             <tr>
-              <td>EC-691</td>
-              <td>Control System and Instrumentation</td>
+              <td>PCC-CS691(6581)</td>
+              <td>DATABASE MANAGEMENT SYSTEMS</td>
               <td>
-                <label for="csp1"><b></b></label>
-                <input type="number" name="csp1" id="csp1" min="0" max="40">
+                <label for="dmp1"><b></b></label>
+                <input type="number" name="dmp1" id="dmp1" min="0" max="40">
               </td>
               <td>
-                <label for="csp2"><b></b></label>
-                <input type="number" name="csp2" id="csp2" min="0" max="40">
+                <label for="dmp2"><b></b></label>
+                <input type="number" name="dmp2" id="dmp2" min="0" max="40">
               </td>
             </tr>
             <tr>
-              <td>EC-692</td>
-              <td>COMPUTER NETWORK</td>
+              <td>PCC-CS692(6597)</td>
+              <td>COMPUTER NETWORKS</td>
               <td>
                 <label for="cnp1"><b></b></label>
                 <input type="number" name="cnp1" id="cnp1" min="0" max="40">
@@ -349,7 +345,9 @@ h3{
    </div>
 
    <br>
-   
+   <!-- <script>
+    let changedetails= confirm("Add Student details");
+  </script> -->
 
 </body>
 </html>

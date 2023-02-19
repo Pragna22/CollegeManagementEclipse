@@ -111,7 +111,7 @@ h3{
 </head>
 <body>
   <div id="logo">
-		<img src="fiem.jgp">
+		<img src="fiem.jpg">
 	  </div><br>
     <div id="home">
       <a href="index.html">Home</a>
@@ -119,7 +119,7 @@ h3{
   <div class="topnav">
  
    
-   <a href="login.html" target="_blank">Login</a>
+   <a href="login.html" target="_blank">Logout</a>
    <div class="dropdown">
      <button class="dropbtn">Extracurricular
        <i class="fa fa-caret-down"></i>
@@ -143,9 +143,23 @@ h3{
    <div class="det">
     <form id="CSE" method="Post" action="CSE">
         <br>  <div class="roll">
-        <label for="uroll"><b>Makaut Roll No.</b></label>
-        <input type="number" name="uroll" max="500000000000000" required>
+        <label for="uid"><b>Makaut Roll No.</b></label>
+        <input type="number" name="uid" max="500000000000000" required>
       </div>
+       <table class="table table-bordered">
+        <tr>
+          <th width="30%">Name: </th>
+          <td width="2%">:</td>
+          </tr>
+           <tr>
+          <th width="30%">Email: </th>
+          <td width="2%">:</td>
+          </tr>
+           <tr>
+          <th width="30%">UID: </th>
+          <td width="2%">:</td>
+          </tr>
+          </table>
         <br><br>
 		<!-- <h3>CA MARKS DETAILS</h3><br> -->
         <button type="button" class="collapsible"><b>CA MARKS DETAILS</b></button>
@@ -165,19 +179,19 @@ h3{
               <td>DATABASE MANAGEMENT SYSTEMS</td>
               <td>
                 <label for="dms1"><b></b></label>
-                    <input type="number" name="dms1" id="dms1" min="0" max="25" >
+                    <input type="number" name="dms1" id="dms1" min="0" max="25">
               </td>
               <td >
                 <label for="dms2"><b></b></label>
-                    <input type="number" name="dms2" id="dms2" min="0" max="25" >
+                    <input type="number" name="dms2" id="dms2" min="0" max="25">
               </td>
               <td>
                 <label for="dms3"><b></b></label>
-                    <input type="number" name="dms3" id="dms3" min="0" max="25" >
+                    <input type="number" name="dms3" id="dms3" min="0" max="25">
               </td>
               <td>
                 <label for="dms4"><b></b></label>
-                    <input type="number" name="dms4" id="dms4" min="0" max="25" >
+                    <input type="number" name="dms4" id="dms4" min="0" max="25">
               </td>
             </tr>
             <tr>
@@ -185,19 +199,19 @@ h3{
               <td>COMPUTER NETWORKS</td>
               <td>
                 <label for="cn1"><b></b></label>
-                    <input type="number" name="cn1" id="cn1" min="0" max="25" >
+                    <input type="number" name="cn1" id="cn1" min="0" max="25">
               </td>
               <td >
                 <label for="cn2"><b></b></label>
-                    <input type="number" name="cn2" id="cn2" min="0" max="25" >
+                    <input type="number" name="cn2" id="cn2" min="0" max="25">
               </td>
               <td>
                 <label for="dms3"><b></b></label>
-                    <input type="number" name="cn3" id="cn3" min="0" max="25" >
+                    <input type="number" name="cn3" id="cn3" min="0" max="25">
               </td>
               <td>
                 <label for="cn4"><b></b></label>
-                    <input type="number" name="cn4" id="cn4" min="0" max="25" >
+                    <input type="number" name="cn4" id="cn4" min="0" max="25">
               </td>
               
             </tr>
@@ -206,83 +220,66 @@ h3{
               <td>DISTRIBUTED SYSTEMS</td>
               <td>
                 <label for="ds1"><b></b></label>
-                    <input type="number" name="ds1" id="ds1" min="0" max="25" >
+                    <input type="number" name="ds1" id="ds1" min="0" max="25">
               </td>
               <td >
                 <label for="ds2"><b></b></label>
-                    <input type="number" name="ds2" id="ds2" min="0" max="25" >
+                    <input type="number" name="ds2" id="ds2" min="0" max="25">
               </td>
               <td>
                 <label for="ds3"><b></b></label>
-                    <input type="number" name="ds3" id="ds3" min="0" max="25" >
+                    <input type="number" name="ds3" id="ds3" min="0" max="25">
               </td>
               <td>
                 <label for="ds4"><b></b></label>
-                    <input type="number" name="ds4" id="ds4" min="0" max="25" >
+                    <input type="number" name="ds4" id="ds4" min="0" max="25">
               </td>
               
             </tr>
             <tr>
-             <td>
-             <select name="hcidm" id="hcidm">
-                                  <option value="PEC-IT602C(6583)">PEC-IT602C(6583)</option>
-                                  <option value="PEC-IT602B(6584)">PEC-IT602B(6584)</option>
-                              </select>
-             </td>
-                <td>
-              <select name="hcdm" id="hcdm">
-                                  <option value="HUMAN COMPUTER">HUMAN COMPUTER INTERACTION</option>
-                                  <option value="DATA MINING ">DATA MINING & DATA WAREHOUSE </option>
-                              </select>
-              </td>
+              <td>PEC-IT602B(6584)</td>
+              <td>DATA MINING & DATA WAREHOUSE</td>
               <td>
                 <label for="dm1"><b></b></label>
-                    <input type="number" name="dm1" id="dm1" min="0" max="25" >
+                    <input type="number" name="dm1" id="dm1" min="0" max="25">
               </td>
               <td >
                 <label for="dm2"><b></b></label>
-                    <input type="number" name="dm2" id="dm2" min="0" max="25" >
+                    <input type="number" name="dm2" id="dm2" min="0" max="25">
               </td>
               <td>
                 <label for="dm3"><b></b></label>
-                    <input type="number" name="dm3" id="dm3" min="0" max="25" >
+                    <input type="number" name="dm3" id="dm3" min="0" max="25">
               </td>
               <td>
                 <label for="dm4"><b></b></label>
-                    <input type="number" name="dm4" id="dm4" min="0" max="25" >
+                    <input type="number" name="dm4" id="dm4" min="0" max="25">
               </td>
               
+              
             </tr>
-            <tr>
-             <td>
-             <select name="hrdnm" id="hrdnm">
-                                  <option value="OEC-IT601B(6594)">OEC-IT601B(6594)</option>
-                                  <option value="OEC-IT601A(6595)">OEC-IT601A(6595)</option>
-                              </select>
-             </td>
-                <td>
-              <select name="hrnm" id="hrnm">
-                                  <option value="HUMAN RESOURCE ">HUMAN RESOURCE DEVELOPMENT AND ORGANIZATIONAL BEHAVIOR</option>
-                                  <option value="NUMERICAL METHODS">NUMERICAL METHODS</option>
-                              </select>
-              </td>
+              <tr>
+              <td>OEC-IT601A(6595)</td>
+              <td>NUMERICAL METHODS</td>
               <td>
                 <label for="nm1"><b></b></label>
                     <input type="number" name="nm1" id="nm1" min="0" max="25" >
               </td>
               <td >
                 <label for="nm2"><b></b></label>
-                    <input type="number" name="nm2" id="nm2" min="0" max="25" >
+                    <input type="number" name="nm2" id="nm2" min="0" max="25">
               </td>
               <td>
                 <label for="nm3"><b></b></label>
-                    <input type="number" name="nm3" id="nm3" min="0" max="25" >
+                    <input type="number" name="nm3" id="nm3" min="0" max="25">
               </td>
               <td>
                 <label for="dm4"><b></b></label>
-                    <input type="number" name="nm4" id="nm4" min="0" max="25" >
+                    <input type="number" name="nm4" id="nm4" min="0" max="25">
               </td>
+              
             </tr>
+           
           </table>
         </div><br>
 		<br><br>
@@ -302,11 +299,11 @@ h3{
               <td>DATABASE MANAGEMENT SYSTEMS</td>
               <td>
                 <label for="dmp1"><b></b></label>
-                <input type="number" name="dmp1" id="dmp1" min="0" max="40" >
+                <input type="number" name="dmp1" id="dmp1" min="0" max="40">
               </td>
               <td>
                 <label for="dmp2"><b></b></label>
-                <input type="number" name="dmp2" id="dmp2" min="0" max="40" >
+                <input type="number" name="dmp2" id="dmp2" min="0" max="40">
               </td>
             </tr>
             <tr>
@@ -314,11 +311,11 @@ h3{
               <td>COMPUTER NETWORKS</td>
               <td>
                 <label for="cnp1"><b></b></label>
-                <input type="number" name="cnp1" id="cnp1" min="0" max="40" >
+                <input type="number" name="cnp1" id="cnp1" min="0" max="40">
               </td>
               <td>
                 <label for="cnp2"><b></b></label>
-                <input type="number" name="cnp2" id="cnp2" min="0" max="40" >
+                <input type="number" name="cnp2" id="cnp2" min="0" max="40">
               </td>
             </tr>
            

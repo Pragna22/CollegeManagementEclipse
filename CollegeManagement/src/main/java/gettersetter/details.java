@@ -1,27 +1,48 @@
 package gettersetter;
 
 public class details {
-	int sem;
-	String croll;
-	String email;
+	String fname;
+	String mname;
+	String address;
 	String dept;
-	int uroll;
-	public int getSem() {
-		return sem;
+	String phn;
+	String b_group;
+	String email;
+	String uid;
+
+	public details() {
+		super();
 	}
-	public details(int sem, String croll, String email, String dept, int uroll) {
-		
-		this.sem = sem;
-		this.croll = croll;
+	//String uid;
+	public details( String fname, String mname, String address, String email,  String phn, String dept, String b_group,String uid) {
+		this.fname = fname;
+		this.mname = mname;
+		this.address = address;
 		this.email = email;
+		this.phn=phn;
 		this.dept = dept;
-		this.uroll = uroll;
+		this.b_group = b_group;
+		this.uid=uid;
+		//this.uid=uid;
+		
 	}
-	public String getCroll() {
-		return croll;
+	public String getFname() {
+		return fname;
 	}
-	public void setCroll(String croll) {
-		this.croll = croll;
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
+	public String getMname() {
+		return mname;
+	}
+	public void setMname(String mname) {
+		this.mname = mname;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	public String getEmail() {
 		return email;
@@ -29,22 +50,35 @@ public class details {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	public String getPhn() {
+		return phn;
+	}
+	public String getUid() {
+		return uid;
+	}
+	public void setUid(String uid) {
+		this.uid = uid;
+	}
+	public void setPhn(String phn) {
+		this.phn = phn;
+	}
+
 	public String getDept() {
 		return dept;
 	}
 	public void setDept(String dept) {
 		this.dept = dept;
 	}
-	public int getUroll() {
-		return uroll;
+		public String getBgroup() {
+		return b_group;
 	}
-	public void setUroll(int uroll) {
-		this.uroll = uroll;
+	public void setBgroup(String b_group) {
+		this.b_group = b_group;
 	}
-	public void setSem(int sem) {
-		this.sem = sem;
+	/*public String getUID() {
+		return uid;
 	}
-	
-	
-
+	public void setUID(String uid) {
+		this.uid = uid;
+	}*/
 }

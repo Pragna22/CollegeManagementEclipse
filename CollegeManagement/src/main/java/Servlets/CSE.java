@@ -31,6 +31,7 @@ public class CSE extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
+		String uid = request.getParameter("uid");
 		String dms1 = request.getParameter("dms1");
 		String dms2 = request.getParameter("dms2");
 		String dms3 = request.getParameter("dms3");
@@ -43,14 +44,10 @@ public class CSE extends HttpServlet {
 		String ds2 = request.getParameter("ds2");
 		String ds3 = request.getParameter("ds3");
 		String ds4 = request.getParameter("ds4");
-		String hcidm = request.getParameter("hcidm");
-		String hcdm = request.getParameter("hcdm");
 		String dm1 = request.getParameter("dm1");
 		String dm2 = request.getParameter("dm2");
 		String dm3 = request.getParameter("dm3");
 		String dm4 = request.getParameter("dm4");
-		String hrdnm = request.getParameter("hrdnm");
-		String hrnm = request.getParameter("hrnm");
 		String nm1 = request.getParameter("nm1");
 		String nm2 = request.getParameter("nm2");
 		String nm3 = request.getParameter("nm3");
@@ -59,7 +56,7 @@ public class CSE extends HttpServlet {
 		String dmp2 = request.getParameter("dmp2");
 		String cnp1 = request.getParameter("cnp1");
 		String cnp2 = request.getParameter("cnp2");
-		String uroll = request.getParameter("uroll");
+		
 		int i = 0;
 
 		// HttpSession session = request.getSession ();
@@ -67,43 +64,40 @@ public class CSE extends HttpServlet {
 		try {
 			// Class.forName ("com.mysql.jdbc.Driver");
 			Connection con =jdbcutil.getConnection();
-			PreparedStatement ps = con.prepareStatement("insert into users marks(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-			ps.setString(1, dms1);
-			ps.setString(2, dms2);
-			ps.setString(3, dms3);
-			ps.setString(4, dms4);
-			ps.setString(5, cn1);
-			ps.setString(6, cn2);
-			ps.setString(7, cn3);
-			ps.setString(8, cn4);
-			ps.setString(9, ds1);
-			ps.setString(10, ds2);
-			ps.setString(11, ds3);
-			ps.setString(12, ds4);
-			ps.setString(13, hcidm);
-			ps.setString(14, hcdm);
-			ps.setString(15, dm1);
-			ps.setString(16, dm2);
-			ps.setString(17, dm3);
-			ps.setString(18, dm4);
-			ps.setString(19, hrdnm);
-			ps.setString(20, hrnm);
-			ps.setString(21, nm1);
-			ps.setString(22, nm2);
-			ps.setString(23, nm3);
-			ps.setString(24, nm4);
-			ps.setString(25, dmp1);
-			ps.setString(26, dmp2);
-			ps.setString(27, cnp1);
-			ps.setString(28, cnp2);
-			ps.setString(29, uroll);
+			PreparedStatement ps = con.prepareStatement("insert into marks values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+			ps.setString(1, uid);
+			ps.setString(2, dms1);
+			ps.setString(3, dms2);
+			ps.setString(4, dms3);
+			ps.setString(5, dms4);
+			ps.setString(6, cn1);
+			ps.setString(7, cn2);
+			ps.setString(8, cn3);
+			ps.setString(9, cn4);
+			ps.setString(10, ds1);
+			ps.setString(11, ds2);
+			ps.setString(12, ds3);
+			ps.setString(13, ds4);
+			ps.setString(14, dm1);
+			ps.setString(15, dm2);
+			ps.setString(16, dm3);
+			ps.setString(17, dm4);
+			ps.setString(18, nm1);
+			ps.setString(19, nm2);
+			ps.setString(20, nm3);
+			ps.setString(21, nm4);
+			ps.setString(22, dmp1);
+			ps.setString(23, dmp2);
+			ps.setString(24, cnp1);
+			ps.setString(25, cnp2);
+		
 			
-			if (!dms1.isEmpty() && !dms2.isEmpty() && !dms3.isEmpty() && !dms4.isEmpty() && !cn1.isEmpty()
+			if (!uid.isEmpty()&& !dms1.isEmpty() && !dms2.isEmpty() && !dms3.isEmpty() && !dms4.isEmpty() && !cn1.isEmpty()
 					&& !cn2.isEmpty() && !cn3.isEmpty() && !cn4.isEmpty() && !ds1.isEmpty() 
-					&& !ds2.isEmpty() && !ds3.isEmpty() && !ds4.isEmpty() && !hcidm.isEmpty() && !hcdm.isEmpty() 
-					&& !dm1.isEmpty() && !dm2.isEmpty() && !dm3.isEmpty() && !dm4.isEmpty() && !hrdnm.isEmpty() 
-					&& !hrnm.isEmpty() && !nm1.isEmpty() && !nm2.isEmpty()&& !nm3.isEmpty() && !nm4.isEmpty() 
-					&& !dmp1.isEmpty() && !dmp2.isEmpty() && !cnp1.isEmpty() && !cnp2.isEmpty()&& !uroll.isEmpty()) {
+					&& !ds2.isEmpty() && !ds3.isEmpty() && !ds4.isEmpty() 
+					&& !dm1.isEmpty() && !dm2.isEmpty() && !dm3.isEmpty() && !dm4.isEmpty() 
+					&&!nm1.isEmpty() && !nm2.isEmpty()&& !nm3.isEmpty() && !nm4.isEmpty() 
+					&& !dmp1.isEmpty() && !dmp2.isEmpty() && !cnp1.isEmpty() && !cnp2.isEmpty()) {
 
 				i = ps.executeUpdate();
 			}
@@ -114,7 +108,7 @@ public class CSE extends HttpServlet {
 				PrintWriter out = response.getWriter();
 				out.println("<script type='text/javascript'>");
 				out.println("alert('Details Added!');");
-				out.println("window.location.href = 'faculty.html';");
+				out.println("window.location.href = 'faculty.jsp';");
 
 				out.println("</script>");
 
@@ -126,7 +120,7 @@ public class CSE extends HttpServlet {
 				PrintWriter out = response.getWriter();
 				out.println("<script type='text/javascript'>");
 				out.println("alert('Something Went Wrong! Try Again');");
-				out.println("window.location.href = 'marks.html';");
+				out.println("window.location.href = 'marks.jsp';");
 
 				out.println("</script>");
 

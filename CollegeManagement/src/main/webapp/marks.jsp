@@ -110,7 +110,7 @@ h3{
   <div class="topnav">
  
    
-   <a href="login.html" target="_blank">Login</a>
+   <a href="login.html" target="_blank">Logout</a>
    <div class="dropdown">
      <button class="dropbtn">Extracurricular
        <i class="fa fa-caret-down"></i>
@@ -153,7 +153,7 @@ h3{
             </div>
             <div><br>
                 <label><b>Makaut Roll Number :</b></label>  
-                <input type="text" name="uroll" placeholder="Enter the makaut roll number.">
+                <input type="text" name="uid" placeholder="Enter the makaut roll number.">
                 </div><br>
                 <div><br>
                     <label><b>Email id :</b></label>  

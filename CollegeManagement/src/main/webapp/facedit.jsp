@@ -70,7 +70,7 @@
   <div class="topnav">
  
    
-   <a href="login.html" target="_blank">Login</a>
+   <a href="login.html" target="_blank">Logout</a>
    <div class="dropdown">
      <button class="dropbtn">Extracurricular
        <i class="fa fa-caret-down"></i>

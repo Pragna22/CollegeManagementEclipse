@@ -14,70 +14,64 @@ import javax.servlet.http.HttpServletResponse;
 import Database.jdbcutil;
 
 /**
- * Servlet implementation class Stu_Details
+ * Servlet implementation class notice
  */
-@WebServlet("/Fac_details")
-public class Fac_details extends HttpServlet {
+@WebServlet("/notice")
+public class notice extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Fac_details() {
+    public notice() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-
-	
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
-		String name = request.getParameter("name");
-		String qual = request.getParameter("qual");
-		String yrs = request.getParameter("yrs");
-		String phn_no = request.getParameter("phn_no");
+		String uid = request.getParameter("uid");
 		String email = request.getParameter("email");
+		String notice = request.getParameter("notice");
+
 
 		int i = 0;
 
-		// HttpSession session = request.getSession ();
-		// session.setAttribute ("email", email);
+		
 		try {
-			// Class.forName ("com.mysql.jdbc.Driver");
-			Connection con = jdbcutil.getConnection();
-			PreparedStatement ps = con.prepareStatement("update fac_details set name= ?, qual= ?, yrs= ?, phn_no= ?, email= ? where email= ?");
-			ps.setString(1, name);
-			ps.setString(2, qual);
-			ps.setString(3, yrs);
-			ps.setString(4, phn_no);
-			ps.setString(5, email);
-			ps.setString(6, email);
 			
-			//if (!name.isEmpty() && !qual.isEmpty() && !yrs.isEmpty() && !phn_no.isEmpty() && !email.isEmpty()) {
+			Connection con = jdbcutil.getConnection();
+			PreparedStatement ps = con.prepareStatement("insert into notice values(?,?,?)");
+			ps.setString(1, uid);
+			ps.setString(2, email);
+			ps.setString(3, notice);
+			
+			
+			if ( !uid.isEmpty() && !email.isEmpty() && !notice.isEmpty()) {
 
 				i = ps.executeUpdate();
-			//}
+			}
 
 			if (i > 0) {
 
 				response.setContentType("text/html");
 				PrintWriter out = response.getWriter();
 				out.println("<script type='text/javascript'>");
-				out.println("alert('Details Added!');");
-				out.println("window.location.href = 'faculty.jsp';");
+				out.println("alert('notice Added!');");
+				out.println("window.location.href = 'notice.jsp';");
 
 				out.println("</script>");
 
 			}
-			// request.getRequestDispatcher ("Welcome1").include (request, response);
+			
 			else {
 
 				response.setContentType("text/html");
 				PrintWriter out = response.getWriter();
 				out.println("<script type='text/javascript'>");
 				out.println("alert('Something Went Wrong! Try Again');");
-				out.println("window.location.href = 'facedit.jsp';");
+				out.println("window.location.href = 'noti.jsp';");
 
 				out.println("</script>");
 

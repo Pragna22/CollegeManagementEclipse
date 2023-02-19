@@ -31,7 +31,7 @@ public class IT extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
-		String uroll = request.getParameter("uroll");
+		String uid = request.getParameter("uid");
 		String dms1 = request.getParameter("dms1");
 		String dms2 = request.getParameter("dms2");
 		String dms3 = request.getParameter("dms3");
@@ -44,14 +44,10 @@ public class IT extends HttpServlet {
 		String ds2 = request.getParameter("ds2");
 		String ds3 = request.getParameter("ds3");
 		String ds4 = request.getParameter("ds4");
-		String hcidm = request.getParameter("hcidm");
-		String hcdm = request.getParameter("hcdm");
 		String dm1 = request.getParameter("dm1");
 		String dm2 = request.getParameter("dm2");
 		String dm3 = request.getParameter("dm3");
 		String dm4 = request.getParameter("dm4");
-		String hrdnm = request.getParameter("hrdnm");
-		String hrnm = request.getParameter("hrnm");
 		String nm1 = request.getParameter("nm1");
 		String nm2 = request.getParameter("nm2");
 		String nm3 = request.getParameter("nm3");
@@ -67,9 +63,9 @@ public class IT extends HttpServlet {
 		// session.setAttribute ("email", email);
 		try {
 			// Class.forName ("com.mysql.jdbc.Driver");
-			Connection con = jdbcutil.getConnection();
-			PreparedStatement ps = con.prepareStatement("insert into marks values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-			ps.setString(1, uroll);
+			Connection con =jdbcutil.getConnection();
+			PreparedStatement ps = con.prepareStatement("insert into marks values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+			ps.setString(1, uid);
 			ps.setString(2, dms1);
 			ps.setString(3, dms2);
 			ps.setString(4, dms3);
@@ -82,29 +78,25 @@ public class IT extends HttpServlet {
 			ps.setString(11, ds2);
 			ps.setString(12, ds3);
 			ps.setString(13, ds4);
-			ps.setString(14, hcidm);
-			ps.setString(15, hcdm);
-			ps.setString(16, dm1);
-			ps.setString(17, dm2);
-			ps.setString(18, dm3);
-			ps.setString(19, dm4);
-			ps.setString(20, hrdnm);
-			ps.setString(21, hrnm);
-			ps.setString(22, nm1);
-			ps.setString(23, nm2);
-			ps.setString(24, nm3);
-			ps.setString(25, nm4);
-			ps.setString(26, dmp1);
-			ps.setString(27, dmp2);
-			ps.setString(28, cnp1);
-			ps.setString(29, cnp2);
+			ps.setString(14, dm1);
+			ps.setString(15, dm2);
+			ps.setString(16, dm3);
+			ps.setString(17, dm4);
+			ps.setString(18, nm1);
+			ps.setString(19, nm2);
+			ps.setString(20, nm3);
+			ps.setString(21, nm4);
+			ps.setString(22, dmp1);
+			ps.setString(23, dmp2);
+			ps.setString(24, cnp1);
+			ps.setString(25, cnp2);
+		
 			
-			
-			if (!uroll.isEmpty() && !dms1.isEmpty() && !dms2.isEmpty() && !dms3.isEmpty() && !dms4.isEmpty() && !cn1.isEmpty()
+			if (!uid.isEmpty()&& !dms1.isEmpty() && !dms2.isEmpty() && !dms3.isEmpty() && !dms4.isEmpty() && !cn1.isEmpty()
 					&& !cn2.isEmpty() && !cn3.isEmpty() && !cn4.isEmpty() && !ds1.isEmpty() 
-					&& !ds2.isEmpty() && !ds3.isEmpty() && !ds4.isEmpty() && !hcidm.isEmpty() && !hcdm.isEmpty() 
-					&& !dm1.isEmpty() && !dm2.isEmpty() && !dm3.isEmpty() && !dm4.isEmpty() && !hrdnm.isEmpty() 
-					&& !hrnm.isEmpty() && !nm1.isEmpty() && !nm2.isEmpty()&& !nm3.isEmpty() && !nm4.isEmpty() 
+					&& !ds2.isEmpty() && !ds3.isEmpty() && !ds4.isEmpty() 
+					&& !dm1.isEmpty() && !dm2.isEmpty() && !dm3.isEmpty() && !dm4.isEmpty() 
+					&&!nm1.isEmpty() && !nm2.isEmpty()&& !nm3.isEmpty() && !nm4.isEmpty() 
 					&& !dmp1.isEmpty() && !dmp2.isEmpty() && !cnp1.isEmpty() && !cnp2.isEmpty()) {
 
 				i = ps.executeUpdate();
@@ -116,7 +108,7 @@ public class IT extends HttpServlet {
 				PrintWriter out = response.getWriter();
 				out.println("<script type='text/javascript'>");
 				out.println("alert('Details Added!');");
-				out.println("window.location.href = 'faculty.html';");
+				out.println("window.location.href = 'faculty.jsp';");
 
 				out.println("</script>");
 
@@ -128,7 +120,7 @@ public class IT extends HttpServlet {
 				PrintWriter out = response.getWriter();
 				out.println("<script type='text/javascript'>");
 				out.println("alert('Something Went Wrong! Try Again');");
-				out.println("window.location.href = 'marks.html';");
+				out.println("window.location.href = 'marks.jsp';");
 
 				out.println("</script>");
 

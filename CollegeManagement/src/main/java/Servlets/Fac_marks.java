@@ -36,38 +36,40 @@ public class Fac_marks extends HttpServlet {
 		try {
 			RequestDispatcher rd = null;
 			Connection con = jdbcutil.getConnection();
-			String name = request.getParameter("name");
-			String sem = request.getParameter("sem");
-			String croll = request.getParameter("croll");
-			String uroll = request.getParameter("uroll");
+			//String name = request.getParameter("name");
+			//String sem = request.getParameter("sem");
+			//String croll = request.getParameter("croll");
+			String uid = request.getParameter("uid");
 			String email = request.getParameter("email");
 			String dept = request.getParameter("dept");
 			PreparedStatement ps = con
-					.prepareStatement("select name,sem,croll,uroll,email,dept from student_details where name=? and sem=? and croll=? and uroll=? and email=? and dept=?");
-			
-			ps.setString(1, name);
+					.prepareStatement("select uid,email,dept from student_details where  uid=? and email=? and dept=?");
+			PreparedStatement verify = con
+					.prepareStatement("select * from marks where uid = ?");
+				verify.setString(1, uid);
+				ResultSet res = verify.executeQuery();
+			/*ps.setString(1, name);
 			ps.setString(2, sem);
-			ps.setString(3, croll);
-			ps.setString(4, uroll);
-			ps.setString(5, email);
-			ps.setString(6, dept);
+			ps.setString(3, croll);*/
+			ps.setString(1, uid);
+			ps.setString(2, email);
+			ps.setString(3, dept);
 			ResultSet rs = ps.executeQuery();
 			
-			PreparedStatement disp = con
-					.prepareStatement("select name,sem,croll,uroll,email,dept from student_details where name=? and sem=? and croll=? and uroll=? and email=? and dept=?");
-			disp.setString(1, name);
+			PreparedStatement disp = con.prepareStatement("select uid,email,dept from student_details where  uid=? and email=? and dept=?");
+			/*disp.setString(1, name);
 			disp.setString(2, sem);
-			disp.setString(3, croll);
-			disp.setString(4, uroll);
-			disp.setString(5, email);
-			disp.setString(6, dept);
+			disp.setString(3, croll);*/
+			disp.setString(1, uid);
+			disp.setString(2, email);
+			disp.setString(3, dept);
 			ResultSet disp_res = disp.executeQuery();
 			
 			if (rs.next() && disp_res.next()) {
-				 String Name = disp_res.getString("name");
+				 /*String Name = disp_res.getString("name");
 				 String Semester = disp_res.getString("sem");
-				 String ClassRoll = disp_res.getString("croll");
-				 String UniversityRoll = disp_res.getString("uroll");
+				 String ClassRoll = disp_res.getString("croll");*/
+				 String UniversityRoll = disp_res.getString("uid");
 				 String Emailid = disp_res.getString("email");
 				 String Department = disp_res.getString("dept");
 	                
@@ -90,7 +92,7 @@ public class Fac_marks extends HttpServlet {
 	                if(dept.equalsIgnoreCase("CSE"))
 	                {
 
-				 rd = request.getRequestDispatcher("CSE.html");
+				 rd = request.getRequestDispatcher("CSE.jsp");
 				//rd.forward(request, response);
                
 
@@ -98,14 +100,14 @@ public class Fac_marks extends HttpServlet {
 			}
 	                else if(dept.equalsIgnoreCase("ECE"))
 	                {
-	                	 rd = request.getRequestDispatcher("ECE.html");
+	                	 rd = request.getRequestDispatcher("ECE.jsp");
 	    				//rd.forward(request, response);
 	                   
 
 	                }
 	                else if(dept.equalsIgnoreCase("IT"))
 	                {
-	                	 rd = request.getRequestDispatcher("IT.html");
+	                	 rd = request.getRequestDispatcher("IT.jsp");
 	    				//rd.forward(request, response);
 	                   
 
@@ -114,12 +116,25 @@ public class Fac_marks extends HttpServlet {
 	                rd.forward(request, response);
 	                
 			}
+			  else if(res.next()) {
+					response.setContentType("text/html");
+					PrintWriter out = response.getWriter();
+					out.println("<script type='text/javascript'>");
+					out.println("alert('Data already exists for the given uid');");
+					out.println("window.location.href = 'marks.jsp';");
+
+					out.println("</script>");
+
+					// response.sendRedirect(type)
+
+					// doGet(request, response);
+				}
 	                else {
 				response.setContentType("text/html");
 				PrintWriter out = response.getWriter();
 				out.println("<script type='text/javascript'>");
 				out.println("alert('Invalid Details! Try Again');");
-				out.println("window.location.href = 'marks.html';");
+				out.println("window.location.href = 'marks.jsp';");
 
 				out.println("</script>");
 

@@ -1,3 +1,5 @@
+<%@ page import="Database.jdbcutil" %>
+<%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,6 +60,9 @@
                 .logo{
                   float: left;
                 }
+                table,th,td{
+border: 1px solid black;
+}
   </style>
 </head>
 <body>
@@ -70,7 +75,7 @@
   <div class="topnav">
  
    
-   <a href="login.html" target="_blank">Login</a>
+   <a href="login.html" target="_blank">Logout</a>
    <div class="dropdown">
      <button class="dropbtn">Extracurricular
        <i class="fa fa-caret-down"></i>
@@ -90,26 +95,70 @@
    <a href="contact.html">Contact</a>
    <a href="About.html" class="hre">About</a> 
    </div><br>
+   <%
+   Connection conn = null;
+   PreparedStatement ps = null;
+   ResultSet rs = null;
+ conn = jdbcutil.getConnection();
+   String uid= request.getParameter("uid");
+   String sql = "Select fname,lname,email from users where uid=?";
+   ps=conn.prepareStatement(sql);
+   ps.setString(1,uid);
+  rs= ps.executeQuery();
+  while(rs.next())
+  {
+	  pageContext.setAttribute("fname",  rs.getString("fname"));
+	  pageContext.setAttribute("lname",  rs.getString("lname"));
+	  pageContext.setAttribute("email",  rs.getString("email"));
+	  
+  }
+   
+   
+   %>
+   <div>
+   
+    <table class="table table-bordered">
+        <tr>
+          <th width="30%">Name </th>
+          <td width="2">:<%= pageContext.getAttribute("fname")%> <%= pageContext.getAttribute("lname")%> </td>
+          
+          </tr>
+           <tr>
+          <th width="2%">Email </th>
+          <td width="20%">:<%= pageContext.getAttribute("email") %></td>
+          </tr>
+           <tr>
+          <th width="2%">UID </th>
+          <td width="20%">: <%= request.getParameter("uid")%></td>
+         
+          </tr>
+          </table><br><br>
+          </div>
    <h1><b>ADD/EDIT DETAILS </b></h1>
    <div class="det">
     <form id="details" method="Post" action="Stu_Details">
-        <div><label><b>Name:</b></label>  
-        <input type="text" name="name" placeholder="Enter your name"></div>
+        <div><label><b>Father's Name:</b></label>  
+        <input type="text" name="fname" placeholder="Enter your name"></div>
 		<div><br>
-		<label><b>Semester:</b></label>  
-        <input type="text" name="sem" placeholder="Enter your semester">
+		<label><b>Mother's Name:</b></label>  
+        <input type="text" name="mname" placeholder="Enter your semester">
 		</div>
     <div><br>
-      <label><b>Class Roll :</b></label>  
-      <input type="text" name="croll" placeholder="Enter your class roll number">
+      <label><b>Address :</b></label>  
+      <input type="text" name="address" placeholder="Enter your class roll number">
       </div>
       <div><br>
-        <label><b>University Roll :</b></label>  
-        <input type="number" name="uroll" placeholder="Enter your class roll number">
+        <label><b>Blood Group :</b></label>  
+        <input type="text" name="b_group" placeholder="Enter your university roll number">
         </div>
         <div><br>
             <label><b>Email id :</b></label>  
             <input type="email" name="email" placeholder="Enter your Email id">
+            </div>
+            <div><br>
+             <div><br>
+            <label><b>Phone Number :</b></label>  
+            <input type="text" name="phn" placeholder="Enter your Phone Number">
             </div>
             <div><br>
               <label for="type">Department:</label>
@@ -117,11 +166,11 @@
               <select id="type" name="dept">
                   <option value="CSE">CSE</option>
                   <option value="ECE">ECE</option>
-                  <option value="ITt">IT</option>
-                  <option value="BCA">BCA</option>
+                  <option value="IT">IT</option>
            
               </select>  
               <br>
+              </div>
 		<br>
         <button type="submit">S U B M I T </button>
                     <button type="reset">R E S E T</button>

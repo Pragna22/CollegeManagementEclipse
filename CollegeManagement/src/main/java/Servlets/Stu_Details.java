@@ -33,12 +33,15 @@ public class Stu_Details extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
-		String name = request.getParameter("name");
-		String sem = request.getParameter("sem");
-		String croll = request.getParameter("croll");
-		String uroll = request.getParameter("uroll");
+		String fname = request.getParameter("fname");
+		String mname = request.getParameter("mname");
+		String address = request.getParameter("address");
+		String b_group = request.getParameter("b_group");
 		String email = request.getParameter("email");
+		String phn = request.getParameter("phn");
 		String dept = request.getParameter("dept");
+		//String uid = request.getParameter("uid");
+		//String phone =request.getParameter(dept)
 
 		int i = 0;
 
@@ -47,19 +50,26 @@ public class Stu_Details extends HttpServlet {
 		try {
 			// Class.forName ("com.mysql.jdbc.Driver");
 			Connection con = jdbcutil.getConnection();
-			PreparedStatement ps = con.prepareStatement("insert into student_details values(?,?,?,?,?,?)");
-			ps.setString(1, name);
-			ps.setString(2, sem);
-			ps.setString(3, croll);
-			ps.setString(4, uroll);
+			String sql="UPDATE student_details SET fname = ?, mname = ?, address = ?, b_group=?, email=?, phn=?,dept=? WHERE email = ?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, fname);
+			ps.setString(2, mname);
+			ps.setString(3, address);
+			ps.setString(4, b_group);
 			ps.setString(5, email);
-			ps.setString(6, dept);
+			ps.setString(7, dept);
+			//ps.setString(9, uid);
+			ps.setString(6, phn);
+			ps.setString(8, email);
 			
-			if (!name.isEmpty() && !sem.isEmpty() && !croll.isEmpty() && !uroll.isEmpty() && !email.isEmpty()
-					&& !dept.isEmpty()) {
+			
+			
+			//if (!name.isEmpty() && !sem.isEmpty() && !croll.isEmpty() && !uid.isEmpty() && !email.isEmpty()
+					//&& !dept.isEmpty() && !phn.isEmpty()) {
 
 				i = ps.executeUpdate();
-			}
+				System.out.println(sql);
+			//}
 
 			if (i > 0) {
 
@@ -79,7 +89,7 @@ public class Stu_Details extends HttpServlet {
 				PrintWriter out = response.getWriter();
 				out.println("<script type='text/javascript'>");
 				out.println("alert('Something Went Wrong! Try Again');");
-				out.println("window.location.href = 'studentedit.html';");
+				out.println("window.location.href = 'studentedit.jsp';");
 
 				out.println("</script>");
 
