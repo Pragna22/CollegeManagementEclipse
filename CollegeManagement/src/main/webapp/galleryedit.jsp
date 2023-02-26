@@ -1,3 +1,5 @@
+<%@ page import="Servlets.gallery_upload" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,22 +9,52 @@
     <title>GalleryEdit</title>
     <link rel="stylesheet" href="navbar.css">
     <style>
-        body{
-            background-color: rgb(238, 176, 219);
-        }
+      
         h1{
             text-align: center;
-            color: rgb(2, 32, 36);
-            background-color: rgb(250, 243, 42);
+            color: darkblue;
+            background-color: lightgoldenrodyellow;
             box-sizing: border-box;
-            width: 450px;  
+            width: 600px;  
     		margin: auto;  
             margin: 20 0 0 450px;  
             padding: 80px;    
    		    padding: 10px;  
    		    border-radius: 15px ;
         }
+        h1:hover{
+            color: green;
+            background-color: rgb(67, 208, 187);
+        }
+        
        
+        input[type=text]{
+            color: darkblue;
+        } 
+        
+        .topnav,#home a{
+  background-color: #008b8b;
+  overflow: hidden;
+}
+        body{
+            background-color: lightgreen;
+             font-family: 'Arial';
+        }
+        button {
+            text-align: center;
+            box-sizing: border-box;
+  			background-color: rgb(204, 38, 66);
+  			color: white;
+            width: 172px;
+            margin: auto;
+                padding: 10px;
+                padding: 10px;
+                padding-bottom: 10px;
+                border-radius: 20px;
+                text-emphasis: bold;
+                font-size: 0.42cm;
+                cursor: pointer;
+        }
         .gallery{
                 box-sizing: border-box;
 				padding: 12px 20px;
@@ -35,22 +67,10 @@
                 padding: 20px;
                 border-radius: 20px;
         }
-        button{
-            color: peachpuff;
-            background-color: rgb(32, 0, 128);
-        } 
-        button:hover{
-            background-color: rgb(152, 66, 233);
-        }
-        .topnav,#home a{
-  background-color: #008b8b;
-  overflow: hidden;
-}
-        body{
-            background-color: rgb(243, 191, 222)255, 0, 149);
-             font-family: 'Arial';
-        }
+        
     </style>
+        
+     
 </head>
 <body>
     <div id="logo">
@@ -75,21 +95,16 @@
           <a href="sportivo.html" target="_blank">Sportivo</a>
         </div>
       </div>
-      <a href="#Notice">Notice Board</a>
+      <a href="notice.jsp">Notice Board</a>
       <!--<a href="#club" target="_blank">Extracurricular</a>-->
       
       <a href="courses.html" target="_blank">Streams</a>
-      <a href="#gallery">Gallery</a>
+      <a href="gallery.jsp">Gallery</a>
       <a href="contact.html">Contact</a>
       <a href="About.html">About</a> 
       </div> <br><br><br>
-      <form id="gallery" method="Post" action="#gal" >
-                <div>
-                <label><b>Uid</b></label>
-                <input type="text" id="uid" name="uid" maxlength="50" placeholder="enter your uid number">
-                <label><b>Email</b></label>
-                <input type="email" id="email" name="email" placeholder="enter your email id">
-                <br><br>
+      <form id="gallery" method="post" action="gallery_upload"  enctype="multipart/form-data">
+               
         <h1>Add to Gallery</h1><br>
     <div class="gallery">
         <div class="div">

@@ -131,11 +131,11 @@ h3{
        <a href="sportivo.html" target="_blank">Sportivo</a>
      </div>
    </div>
-   <a href="#Notice">Notice Board</a>
+   <a href="notice.jsp">Notice Board</a>
    <!--<a href="#club" target="_blank">Extracurricular</a>-->
    
    <a href="courses.html" target="_blank">Streams</a>
-   <a href="#gallery">Gallery</a>
+   <a href="gallery.jsp">Gallery</a>
    <a href="contact.html">Contact</a>
    <a href="About.html" class="hre">About</a> 
    </div><br>
@@ -147,17 +147,24 @@ h3{
         <input type="number" name="uid" max="500000000000000" required>
       </div>
        <table class="table table-bordered">
+         <%
+ String name = request.getParameter("name");
+String email = request.getParameter("email");
+ String uid = request.getParameter("uid");
+%>
         <tr>
           <th width="30%">Name: </th>
-          <td width="2%">:</td>
+          <td width="2%">: <%= name %></td>
           </tr>
            <tr>
-          <th width="30%">Email: </th>
-          <td width="2%">:</td>
+          <th width="2%">Email: </th>
+        
+          
+          <td width="20%">: <%= email %></td>
           </tr>
            <tr>
-          <th width="30%">UID: </th>
-          <td width="2%">:</td>
+          <th width="2%">UID: </th>
+          <td width="20%">:  <%= uid %></td>
           </tr>
           </table>
         <br><br>

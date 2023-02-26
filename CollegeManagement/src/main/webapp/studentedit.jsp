@@ -138,18 +138,18 @@ border: 1px solid black;
    <div class="det">
     <form id="details" method="Post" action="Stu_Details">
         <div><label><b>Father's Name:</b></label>  
-        <input type="text" name="fname" placeholder="Enter your name"></div>
+        <input type="text" name="fname" placeholder="Enter your name father's name"></div>
 		<div><br>
 		<label><b>Mother's Name:</b></label>  
-        <input type="text" name="mname" placeholder="Enter your semester">
+        <input type="text" name="mname" placeholder="Enter your name mother's name">
 		</div>
     <div><br>
       <label><b>Address :</b></label>  
-      <input type="text" name="address" placeholder="Enter your class roll number">
+      <input type="text" name="address" placeholder="Enter your address">
       </div>
       <div><br>
         <label><b>Blood Group :</b></label>  
-        <input type="text" name="b_group" placeholder="Enter your university roll number">
+        <input type="text" name="b_group" placeholder="Enter your blood group">
         </div>
         <div><br>
             <label><b>Email id :</b></label>  

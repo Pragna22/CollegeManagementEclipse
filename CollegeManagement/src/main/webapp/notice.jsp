@@ -1,7 +1,6 @@
-<%@ page import="java.util.ArrayList" %>
-<%@ page import=" gettersetter.NoticeB" %>
+<%@ page import="Database.jdbcutil" %>
 <%@ page import="java.sql.*" %>
-<%@ page import="javax.servlet.http.Cookie" %>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -133,86 +132,34 @@ h1{
         <br><br>
         <div class="not">
         
-        
- <%   String email = "";
-Cookie[] cookies = request.getCookies();
-if (cookies != null) {
-  for (Cookie cookie : cookies) {
-    if (cookie.getName().equals("email")) {
-      email = cookie.getValue();
-      break;
-      
-    }
-    
-  }
-  email = "\"" + email + "\"";
-  System.out.println("notice is "+email);
+<marquee>
+ <%
+	try{
+		// Connect to the database
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection conn = jdbcutil.getConnection();
 
-}
-Connection conn = null;
-PreparedStatement statement = null;
-ResultSet resultSet = null;
-final String DRIVER = "com.mysql.cj.jdbc.Driver";
-final String URL = "jdbc:mysql://127.0.0.1:3306/college_project";
- final String USERNAME = "root";
- final String PASSWORD = "Pragna@05";
-  ArrayList<NoticeB> detailsList = new ArrayList<NoticeB>();
+		// Create a statement
+		Statement stmt = conn.createStatement();
 
-  try {
-    Class.forName("com.mysql.cj.jdbc.Driver");
-    conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-    statement = conn.prepareStatement("SELECT *  FROM notice where email= "+email);
-	System.out.println("query is "+statement);
-    resultSet = statement.executeQuery();
+		// Execute the query
+		ResultSet rs = stmt.executeQuery("SELECT message FROM notice");
 
+		// Loop through the result set and display the data
+		while(rs.next()){
+			out.print(">>" + rs.getString("message") + "<br>");
+		}
 
-    while (resultSet.next()) {
-      NoticeB detail = new NoticeB("a","b","c");
-      detail.setUid(resultSet.getString("Uid"));
-      detail.setEmail(resultSet.getString("Email"));
-      detail.setNotice(resultSet.getString("Notice"));
-   
-      
-      System.out.println("Email is "+detail.getEmail());
-      
-      detailsList.add(detail);
-    }
-
-    request.setAttribute("detailsList", detailsList);
-  } catch (Exception e) {
-    e.printStackTrace();
-  }
+		// Close the result set, statement, and connection
+		rs.close();
+		stmt.close();
+		conn.close();
+	}
+	catch(Exception e){
+		out.println("Exception: " + e.getMessage());
+	}
 %>
- <table class="table table-bordered">
- 
-        <tr>
-          
-          <td width="2%">>></td>
-          
-           <%
-    try {
-      for (NoticeB det : detailsList) {
-  %>
- 
-   
-    <td><marquee><%= det.getNotice() %></marquee></td>
-
-  <%
-      }
-    } catch (Exception e) {
-  %>
-  <tr>
-    <td colspan="2">An error occurred while processing the request: <%= e.getMessage() %></td>
-  </tr>
-  <%
-    }
-  %>
-        </tr>
-       
-        </table>
-
-        
-        </div>
+ </marquee>
         <script>
             var coll = document.getElementsByClassName("collapsible");
             var i;

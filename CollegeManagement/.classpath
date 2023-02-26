@@ -8,5 +8,6 @@
 	<classpathentry exported="true" kind="lib" path="C:/Users/PROGNA/Downloads/mysql-connector-j-8.0.31/mysql-connector-j-8.0.31/mysql-connector-j-8.0.31.jar"/>
 	<classpathentry kind="lib" path="C:/Users/PROGNA/Downloads/commons-fileupload-1.4-bin/commons-fileupload-1.4.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/javax.servlet-api.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/commons-codec-1.15.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -31,8 +31,7 @@ public class notice extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
-		String uid = request.getParameter("uid");
-		String email = request.getParameter("email");
+		
 		String notice = request.getParameter("notice");
 
 
@@ -42,24 +41,18 @@ public class notice extends HttpServlet {
 		try {
 			
 			Connection con = jdbcutil.getConnection();
-			PreparedStatement ps = con.prepareStatement("insert into notice values(?,?,?)");
-			ps.setString(1, uid);
-			ps.setString(2, email);
-			ps.setString(3, notice);
+			PreparedStatement ps = con.prepareStatement("insert into notice values(?)");
+			ps.setString(1, notice);
 			
 			
-			if ( !uid.isEmpty() && !email.isEmpty() && !notice.isEmpty()) {
-
-				i = ps.executeUpdate();
-			}
-
+			i=ps.executeUpdate();
 			if (i > 0) {
 
 				response.setContentType("text/html");
 				PrintWriter out = response.getWriter();
 				out.println("<script type='text/javascript'>");
 				out.println("alert('notice Added!');");
-				out.println("window.location.href = 'notice.jsp';");
+				out.println("window.location.href = 'noticeedit.jsp';");
 
 				out.println("</script>");
 
@@ -71,7 +64,7 @@ public class notice extends HttpServlet {
 				PrintWriter out = response.getWriter();
 				out.println("<script type='text/javascript'>");
 				out.println("alert('Something Went Wrong! Try Again');");
-				out.println("window.location.href = 'noti.jsp';");
+				out.println("window.location.href = 'noticeedit.jsp';");
 
 				out.println("</script>");
 

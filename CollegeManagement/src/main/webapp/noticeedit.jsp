@@ -79,11 +79,11 @@
           <a href="sportivo.html" target="_blank">Sportivo</a>
         </div>
       </div>
-      <a href="#Notice">Notice Board</a>
+      <a href="notice.jsp">Notice Board</a>
       <!--<a href="#club" target="_blank">Extracurricular</a>-->
       
       <a href="courses.html" target="_blank">Streams</a>
-      <a href="#gallery">Gallery</a>
+      <a href="gallery.jsp">Gallery</a>
       <a href="contact.html">Contact</a>
       <a href="About.html">About</a> 
      <!-- < enctype="multipart/form-data"></enctype> -->
@@ -92,11 +92,7 @@
     <div class="notice">
         <form id="notice" method="Post" action="notice" >
                 <div>
-                <label><b>Uid</b></label>
-                <input type="text" id="uid" name="uid" maxlength="50" placeholder="enter your uid number">
-                <label><b>Email</b></label>
-                <input type="email" id="email" name="email" placeholder="enter your email id">
-                <label><b><h1>Notice board</h1>  </b></label>
+               
                     <br><br> <textarea id="notice" name="notice" cols="196"
                         rows="40" placeholder="enter the notice details" required></textarea>
                 </div><br><br>
