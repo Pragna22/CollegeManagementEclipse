@@ -1,3 +1,5 @@
+<%@ page import="Database.jdbcutil" %>
+<%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +19,8 @@
 	body{
 		background-color: lightpink;
 		font-family: 'Arial';
-		padding: 20px;
+		padding: 0px;
+		margin: 0px
 	}
   h4{
         text-decoration: underline;
@@ -58,6 +61,9 @@
                 .logo{
                   float: left;
                 }
+                 table,th,td{
+border: 1px solid black;
+}
   </style>
 </head>
 <body>
@@ -82,34 +88,68 @@
        <a href="sportivo.html" target="_blank">Sportivo</a>
      </div>
    </div>
-   <a href="#Notice">Notice Board</a>
+   <a href="notice.jp">Notice Board</a>
    <!--<a href="#club" target="_blank">Extracurricular</a>-->
    
    <a href="courses.html" target="_blank">Streams</a>
-   <a href="#gallery">Gallery</a>
+   <a href="gallery.jsp">Gallery</a>
    <a href="contact.html">Contact</a>
    <a href="About.html" class="hre">About</a> 
    </div><br>
+   <%
+   Connection conn = null;
+   PreparedStatement ps = null;
+   ResultSet rs = null;
+ conn = jdbcutil.getConnection();
+   String uid= request.getParameter("uid");
+   String sql = "Select fname,lname,email from users where uid=?";
+   ps=conn.prepareStatement(sql);
+   ps.setString(1,uid);
+  rs= ps.executeQuery();
+  while(rs.next())
+  {
+	  pageContext.setAttribute("fname",  rs.getString("fname"));
+	  pageContext.setAttribute("lname",  rs.getString("lname"));
+	  pageContext.setAttribute("email",  rs.getString("email"));
+	  
+  }
+    
+   %>
+   <div>
+   
+    <table class="table table-bordered">
+        <tr>
+          <th width="30%">Name </th>
+          <td width="2">:<%= pageContext.getAttribute("fname")%> <%= pageContext.getAttribute("lname")%> </td>
+          
+          </tr>
+           <tr>
+          <th width="2%">Email </th>
+          <td width="20%">:<%= pageContext.getAttribute("email") %></td>
+          </tr>
+           <tr>
+          <th width="2%">UID </th>
+          <td width="20%">: <%= request.getParameter("uid")%></td>
+         
+          </tr>
+          </table><br><br>
+          </div>
    <h1><b>ADD/EDIT DETAILS </b></h1>
    <div class="det">
     <form id="details" method="Post" action="Fac_details">
-        <div><label><b>Name:</b></label>  
-        <input type="text" name="name" placeholder="Enter your name"></div>
+        <div><label><b>Qualification:</b></label>  
+        <input type="text" name="qual" placeholder="Enter your qualification"></div>
 		<div><br>
-		<label><b>Qualification:</b></label>  
-        <input type="text" name="qual" placeholder="Enter your qualification">
+		<label><b>Years Of Experience:</b></label>  
+        <input type="text" name="yrs" placeholder="Enter your years of experience">
 		</div>
-    <div><br>
-      <label><b> Years of Experience :</b></label>  
-      <input type="number" name="yrs" placeholder="Enter your years of experience">
-      </div>
-      <div><br>
-        <label><b>Phone Number :</b></label>  
-        <input type="number" name="phn_no" placeholder="Enter your phone number">
-        </div>
         <div><br>
             <label><b>Email id :</b></label>  
             <input type="email" name="email" placeholder="Enter your Email id">
+            </div>
+             <div><br>
+            <label><b>Phone Number :</b></label>  
+            <input type="text" name="phn_no" placeholder="Enter your Phone Number">
             </div>
 		<br>
         <button type="submit">S U B M I T </button>
@@ -124,3 +164,4 @@
   </script>
 </body>
 </html>
+   

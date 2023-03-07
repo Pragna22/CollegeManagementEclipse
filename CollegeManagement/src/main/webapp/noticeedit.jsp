@@ -89,6 +89,7 @@
      <!-- < enctype="multipart/form-data"></enctype> -->
       </div> <br>
         <br>
+         <h1>Add to Notice</h1><br>
     <div class="notice">
         <form id="notice" method="Post" action="notice" >
                 <div>

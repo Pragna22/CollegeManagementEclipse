@@ -2,6 +2,7 @@
 <%@ page import=" gettersetter.facdetails" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="javax.servlet.http.Cookie" %>
+<%@ page import="Database.jdbcutil" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -244,11 +245,11 @@ border: 1px solid black;
          <a href="sportivo.html" target="_blank">Sportivo</a>
        </div>
      </div>
-     <a href="#Notice">Notice Board</a>
+     <a href="notice.jsp">Notice Board</a>
      <!--<a href="#club" target="_blank">Extracurricular</a>-->
      
      <a href="courses.html" target="_blank">Streams</a>
-     <a href="#gallery">Gallery</a>
+     <a href="gallery.jsp">Gallery</a>
      <a href="contact.html">Contact</a>
      <a href="About.html" class="hre">About</a> 
      </div> 
@@ -257,20 +258,23 @@ border: 1px solid black;
         <div class="container">      
        
 <div class="profile-pic">
-  <label class="-label" for="file">
-    <span class="glyphicon glyphicon-camera"></span>
-    <span>Change Image</span>
-  </label>
- < <input id="file" type="file"  onchange="loadFile(event)"/>
-  
- 
-  <img src="stu.jpg" id="output" width="200" />
-</div>
+            <label class="-label" for="file">
+                <span class="glyphicon glyphicon-camera"></span>
+                <span>Change Image</span>
+            </label>
+           <input id="file" type="file" name="picture" onchange="loadFile(event)" style="display: none;"/>
 
-<script>
-
-
-</script>
+            <input type="submit" value="Save">
+       
+        <img id="output" src="<%=request.getContextPath() + "/uploads/profile.jsp?id=" +pageContext.getAttribute("user_uid") %>" width="200" />
+    </div>
+    <script>
+        var loadFile = function(event) {
+        	console.log("hi");
+            var output = document.getElementById('output');
+            output.src = URL.createObjectURL(event.target.files[0]);
+        };
+    </script>
         <div class="head">
         <h1><marquee>FUTURE INSTITUTE OF ENGINEERING & MANAGEMENT</marquee></h1>
     </div>
@@ -302,6 +306,7 @@ border: 1px solid black;
         <h3 class="mb-0"><i class="far fa-clone pr-1"></i>General Information</h3>
                 <%
 String email = "";
+String user_uid;
 Cookie[] cookies = request.getCookies();
 if (cookies != null) {
   for (Cookie cookie : cookies) {
@@ -324,39 +329,49 @@ else
   Connection conn = null;
   PreparedStatement statement = null;
   ResultSet resultSet = null;
-  final String DRIVER = "com.mysql.cj.jdbc.Driver";
-  final String URL = "jdbc:mysql://127.0.0.1:3306/college_project";
-   final String USERNAME = "root";
-   final String PASSWORD = "Pragna@05";
+  Connection conn1 = null;
+  PreparedStatement statement1 = null;
+  ResultSet resultSet1 = null;
+ // final String DRIVER = "com.mysql.cj.jdbc.Driver";
+ // final String URL = "jdbc:mysql://127.0.0.1:3306/college_project";
+  // final String USERNAME = "root";
+  // final String PASSWORD = "Pragna@05";
   ArrayList<facdetails> detailsList = new ArrayList<facdetails>();
 
   try {
     Class.forName("com.mysql.cj.jdbc.Driver");
-    conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+    //conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+     conn= jdbcutil.getConnection();
     statement = conn.prepareStatement("SELECT *  FROM fac_details where email= "+email);
-	System.out.println("query is "+statement);
-    resultSet = statement.executeQuery();
+    statement1 = conn.prepareStatement("SELECT uid FROM users where email= "+email);
+    System.out.println("query 1 is "+statement);
+	System.out.println("query 2 is "+statement1);
+	resultSet = statement.executeQuery();
+	resultSet1 = statement1.executeQuery();
 
 
-    while (resultSet.next()) {
-      facdetails detail = new facdetails(0,"a","b","c");
+    while (resultSet.next() && resultSet1.next()) {
+      facdetails detail = new facdetails("a","b","c","d","e");
       detail.setEmail(resultSet.getString("email"));
       detail.setQual(resultSet.getString("qual"));
-      detail.setYrs(resultSet.getInt("yrs"));
+      detail.setYrs(resultSet.getString("yrs"));
       detail.setPhn(resultSet.getString("phn_no"));
+      detail.setUid(resultSet1.getString("uid"));
       System.out.println("Email is "+detail.getEmail());
+      pageContext.setAttribute("user_uid",detail.getUid());
       detailsList.add(detail);
     }
 
-    request.setAttribute("detailsList", detailsList);
-  } catch (Exception e) {
+    //request.setAttribute("detailsList", detailsList);
+  } 
+  catch (Exception e) {
     e.printStackTrace();
   }
 %>
         
     <table class="table table-bordered">
         <tr>
-          <th width="30%">Qualification</th>
+          <th width="20%">Qualification</th>
           <td width="2%">:</td>
            <%
     try {
@@ -371,7 +386,7 @@ else
     } catch (Exception e) {
   %>
   <tr>
-    <td colspan="2">An error occurred while processing the request: <%= e.getMessage() %></td>
+    <td colspan="1">An error occurred while processing the request: <%= e.getMessage() %></td>
   </tr>
   <%
     }
@@ -451,7 +466,7 @@ else
         </tr>
       </table>
       <div class="edit">
-      <br><a href="facedit.jsp">Edit</a>
+      <br><a href="facedit.jsp?uid=<%= pageContext.getAttribute("user_uid") %>">Edit</a>
     </div>
     </div>
     <br><br>

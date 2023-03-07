@@ -253,7 +253,7 @@ border: 1px solid black;
      <!--<a href="#club" target="_blank">Extracurricular</a>-->
      
      <a href="courses.html" target="_blank">Streams</a>
-     <a href="gallery.jspl">Gallery</a>
+     <a href="gallery.jsp">Gallery</a>
      <a href="contact.html">Contact</a>
      <a href="About.html" class="hre">About</a> 
      </div> 

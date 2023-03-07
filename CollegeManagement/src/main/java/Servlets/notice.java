@@ -41,7 +41,7 @@ public class notice extends HttpServlet {
 		try {
 			
 			Connection con = jdbcutil.getConnection();
-			PreparedStatement ps = con.prepareStatement("insert into notice values(?)");
+			PreparedStatement ps = con.prepareStatement("insert into notice (message) values(?)");
 			ps.setString(1, notice);
 			
 			

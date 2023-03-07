@@ -1,19 +1,18 @@
 package gettersetter;
 
 public class facdetails {
-		int yrs;
+		String yrs;
 		String qual;
 		String email;
 		String phn_no;
-		public int getYrs() {
-			return yrs;
-		}
-		public facdetails(int yrs, String qual, String email, String phn_no) {
+		String uid;
+		public facdetails(String yrs, String qual, String email, String phn_no, String uid) {
 			
 			this.yrs = yrs;
 			this.qual = qual;
 			this.email = email;
 			this.phn_no = phn_no;
+			this.uid=uid;
 		}
 		public String getQual() {
 			return qual;
@@ -33,11 +32,20 @@ public class facdetails {
 		public void setPhn(String phn_no) {
 			this.phn_no = phn_no;
 		}
-			public void setYrs(int yrs) {
+		public String getYrs() {
+			return yrs;
+		}
+	
+			public void setYrs(String yrs) {
 			this.yrs = yrs;
 		}
-		
-		
+			
+			public String getUid() {
+				return uid;
+			}
+			public void setUid(String uid) {
+				this.uid = uid;
+			}
 
 	}
 

@@ -94,6 +94,13 @@ public class register extends HttpServlet {
 				stu_detail.setString(2, uid);
 				stu_detail.executeUpdate();
 			}
+			if(type.equalsIgnoreCase("Faculty"))
+			{
+				PreparedStatement stu_detail= con.prepareStatement("insert into fac_details(email,uid) values(?,?)");
+				stu_detail.setString(1, email);
+				stu_detail.setString(2, uid);
+				stu_detail.executeUpdate();
+			}
 
 				response.setContentType("text/html");
 				PrintWriter out = response.getWriter();

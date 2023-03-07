@@ -6,9 +6,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XPLORICA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="navbar.css">	
-
 	<style >
+body {margin:0;height:2000px;}
+
+.icon-bar {
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.icon-bar a {
+  display: block;
+  text-align: center;
+  padding: 16px;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 20px;
+}
+
+.icon-bar a:hover {
+  background-color: #000;
+}
+
+.facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.google {
+  background: #dd4b39;
+  color: white;
+}
+
+ .linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.youtube {
+  background: #bb0000;
+  color: white;
+} 
+
 		.topnav,#home a{
  				 background-color: #008b8b;
  				 overflow: hidden;
@@ -115,24 +158,32 @@
           <a href="sportivo.html" target="_blank">Sportivo</a>
         </div>
       </div>
-      <a href="#Notice">Notice Board</a>
+      <a href="notice.jsp">Notice Board</a>
       <!--<a href="#club" target="_blank">Extracurricular</a>-->
       
       <a href="courses.html" target="_blank">Streams</a>
-      <a href="#gallery">Gallery</a>
+      <a href="gallery.jsp">Gallery</a>
       <a href="contact.html">Contact</a>
       <a href="About.html">About</a> 
       </div> 
+      <div class="icon-bar">
+	<a href="https://www.facebook.com/XplOriCa.fiem/" class="facebook"><i class="fa fa-facebook"></i></a> 
+	<a href="http://xplorica.in/" class="google"><i class="fa fa-google"></i></a> 
+    <a href="https://in.linkedin.com/company/xplorica" class="linkedin"><i class="fa fa-linkedin"></i></a>
+	<a href="https://www.youtube.com/@xplorica3439" class="youtube"><i class="fa fa-youtube"></i></a>
+  </div>
      <!--  <div id="club1">
         <img src="xplorica.jpg">
       </div> -->
+      
       <br><br><br>
+     
     <div class="head">
         <h2>
             <marquee>XPLORICA</marquee>
         </h2>
     </div><br>
-    
+   
     <div class="abt">
         <br><br><br>
         <div class="content">
@@ -157,6 +208,7 @@
     <div class="fest">
     <br><a href="FestsXplo.html">FESTS</a>
 </div>
+
 </body>
 
 </html>

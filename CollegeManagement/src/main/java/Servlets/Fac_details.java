@@ -33,7 +33,6 @@ public class Fac_details extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
-		String name = request.getParameter("name");
 		String qual = request.getParameter("qual");
 		String yrs = request.getParameter("yrs");
 		String phn_no = request.getParameter("phn_no");
@@ -46,17 +45,18 @@ public class Fac_details extends HttpServlet {
 		try {
 			// Class.forName ("com.mysql.jdbc.Driver");
 			Connection con = jdbcutil.getConnection();
-			PreparedStatement ps = con.prepareStatement("update fac_details set name= ?, qual= ?, yrs= ?, phn_no= ?, email= ? where email= ?");
-			ps.setString(1, name);
-			ps.setString(2, qual);
-			ps.setString(3, yrs);
-			ps.setString(4, phn_no);
+			String sql="UPDATE fac_details SET qual = ?, yrs = ?, phn_no = ?, email=? WHERE email = ?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, qual);
+			ps.setString(2, yrs);
+			ps.setString(3, phn_no);
+			ps.setString(4, email);
 			ps.setString(5, email);
-			ps.setString(6, email);
 			
 			//if (!name.isEmpty() && !qual.isEmpty() && !yrs.isEmpty() && !phn_no.isEmpty() && !email.isEmpty()) {
 
-				i = ps.executeUpdate();
+			i = ps.executeUpdate();
+			System.out.println(sql);
 			//}
 
 			if (i > 0) {

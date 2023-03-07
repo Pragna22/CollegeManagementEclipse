@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="navbar.css">
+
+<style>
+      h1 {
+	text-align: center;
+	font-size: 30px;
+	font-family: Times New Roman, Georgia, Garamond;
+	font-weight: 900;
+	color: black;
+}
+        .feedback{
+                box-sizing: border-box;
+				padding: 12px 20px;
+				width: 682px;
+				background-color:white;
+                text-align: center;
+                margin: auto;
+                margin: 20 0 0 450px;
+                padding: 80px;
+                padding: 20px;
+                border-radius: 20px;
+        }
+      
+        input[type=text]{
+            color: darkblue;
+        } 
+        button{
+            color: purple;
+            background-color: peachpuff;
+        } 
+        button:hover{
+            background-color: rgb(152, 66, 233);
+        }
+        .topnav,#home a{
+  background-color: #008b8b;
+  overflow: hidden;
+}
+        body{
+            background-color: aqua;
+             font-family: 'Arial';
+        }
+
+h2 {
+	text-align: center;
+	width: 382px;
+	margin: auto;
+	margin: 20 0 0 450px;
+	padding: 80px;
+	color: black;
+	padding: 20px;
+	background-color: #6abadeba;
+	border-radius: 15px;
+}
+
+</style>
+</head>
+<body>
+	<div id="logo">
+		<img src="fiem.jpg">
+	</div>
+
+	<div id="home">
+		<a href="index.html">Home</a>
+	</div>
+	<div class="topnav">
+
+
+		<a href="login.html" target="_blank">Login/Sign Up</a>
+		<div class="dropdown">
+			<button class="dropbtn">
+				Extracurricular <i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="xplorica.html" target="_blank">Xplorica</a> <a
+					href="culrav.html" target="_blank">Culrav</a> <a
+					href="estrella-1.html" target="_blank">Estrella</a> <a
+					href="sportivo.html" target="_blank">Sportivo</a>
+			</div>
+		</div>
+		<a href="notice.jsp">Notice Board</a>
+		<!--<a href="#club" target="_blank">Extracurricular</a>-->
+
+		<a href="courses.html" target="_blank">Streams</a>
+		 <a href="gallery.jsp">Gallery</a>
+		<a href="contact.html">Contact</a> <a href="About.html">About</a>
+	</div><br><br>
+	<h1>GIVE YOUR VALUABLE FEEDBACK TO HELP US IMPROVE</h2>
+	<br>
+	<div class="feedback">
+		<form id="feedback" method="post" action="FeedbackServ">
+		<h1>Put Your Thoughts Below</h2>
+	<br>
+			<label><b>Your Name: </b> </label> <input type="text" name="name">
+			<br>
+			<div>
+				<br> <label><b>Email address: </b> </label> <input type="email" name="email" />
+			</div>
+			<br>
+			<div>
+				<label><b>Phone Number: </b> </label> <input type="text" name="mob" />
+			</div>
+			<br>
+			 <label><b>Are you a student ?</b></label>
+        Yes <input type="radio" name="student"> No  <input type="radio" name="student"><br><br>
+			                <div>
+                    <br><label><b>Write Your Feedback : </b></label>
+                    <br><br> <textarea name="Mytext" cols="50"
+                        rows="10" required></textarea>
+                </div><br><br>
+                    <button type="submit">Submit Now</button>
+                    <button type="reset">Reset Now</button>
+
+		</form>
+
+	</div>
+	</hr>
+
+</body>
