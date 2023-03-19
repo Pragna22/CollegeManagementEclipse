@@ -17,7 +17,6 @@
 	body{
 		background-color: lightgray;
 		font-family: 'Arial';
-		padding: 20px;
 	}
     .head {
             text-align: left;
@@ -122,7 +121,7 @@
     <div class="topnav">
    
      
-     <a href="login.html" target="_blank">Logout</a>
+     <a href="login.html">Logout</a>
      <div class="dropdown">
        <button class="dropbtn">Extracurricular
          <i class="fa fa-caret-down"></i>
@@ -151,14 +150,14 @@
     <div class="mid">
         <h1>ADMIN</h1>
     </div><br>
-    <button type="button" class="collapsible"><b>Faculty</b></button>
-    <div class="content">
-        <p> abc </p>
+   <button type="button" class="collapsible"> 
+        <a href="timetable.jsp">Faculty</a>
+      </button>
       </div><br><br>
-      <button type="button" class="collapsible"><b>Student</b></button>
-    <div class="content">
-        <p> abc </p>
-      </div>
+      <button type="button" class="collapsible">
+       <a href="library_details.jsp">Student</a>
+       </button>
+    
       <br><br>
       <button type="button" class="collapsible"><b>Management</b></button>
       <div class="content">

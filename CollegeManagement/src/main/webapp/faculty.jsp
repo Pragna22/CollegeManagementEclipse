@@ -163,11 +163,6 @@ label {
     cursor: default;
 }
 
- 
-  
-
-
-
 body {
   height: 100vh;
 
@@ -256,25 +251,17 @@ border: 1px solid black;
      <br>
      <div class="fac_profile">
         <div class="container">      
-       
+              <form method="Post" action="Profile_Pic">      
 <div class="profile-pic">
-            <label class="-label" for="file">
-                <span class="glyphicon glyphicon-camera"></span>
-                <span>Change Image</span>
-            </label>
-           <input id="file" type="file" name="picture" onchange="loadFile(event)" style="display: none;"/>
+  <label class="-label" for="file">
+    <span class="glyphicon glyphicon-camera"></span>
+    <span>Change Image</span>
+  </label>
+ < <input id="file" type="file" name="pic" onchange="loadFile(event)" />
+  <img src="stu.jpg" id="output" width="200" />
+</div>
+</form>
 
-            <input type="submit" value="Save">
-       
-        <img id="output" src="<%=request.getContextPath() + "/uploads/profile.jsp?id=" +pageContext.getAttribute("user_uid") %>" width="200" />
-    </div>
-    <script>
-        var loadFile = function(event) {
-        	console.log("hi");
-            var output = document.getElementById('output');
-            output.src = URL.createObjectURL(event.target.files[0]);
-        };
-    </script>
         <div class="head">
         <h1><marquee>FUTURE INSTITUTE OF ENGINEERING & MANAGEMENT</marquee></h1>
     </div>
@@ -473,18 +460,10 @@ else
       <button type="button" class="collapsible"> 
         <a href="marks.jsp">Marks Upload</a>
       </button>
-      <div class="content">
-  
-      </div>
       <br><br>
-      <button type="button" class="collapsible">Timetable</button>
-      <div class="content">
-          
-    </div>
-            
-      
-        
-            
+      <form id="TimetabledetailsServ" name="TimetabledetailsServ" method="Get" action="TimetabledetailsServ">
+      <button type="button" class="collapsible"><a href="fac_timetable.jsp?uid=<%= pageContext.getAttribute("user_uid") %>">TimeTable</a></button>
+      </form>       
       </div>
         <script>
             var coll = document.getElementsByClassName("collapsible");

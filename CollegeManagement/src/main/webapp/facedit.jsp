@@ -13,18 +13,14 @@
                  background-color: #008b8b;
                  overflow: hidden;
                 }
-	h1{
-		text-align: center;
-	}
+
 	body{
 		background-color: lightpink;
 		font-family: 'Arial';
 		padding: 0px;
 		margin: 0px
 	}
-  h4{
-        text-decoration: underline;
-       } 
+
        .det{
         text-align: center;
             background-color: lightgoldenrodyellow;
@@ -32,7 +28,7 @@
             padding: 5px 10px 10px 10px;
                 margin: 20px 10px 0px 530px;
                 text-align: center;
-                width: 400px;
+                width: 500px;
                 border-radius: 10px;
        }
        button {
