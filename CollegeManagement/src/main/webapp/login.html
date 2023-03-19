@@ -15,16 +15,18 @@
             margin: 0;  
             padding: 0;   
             font-family: 'Arial';
-            background-color:   lightblue;  
+           background: url("college.jpg");
+            background-repeat: no-repeat; 
+            background-size: cover;
         } 
               
-        h1{
-            text-align: center;
-            font-size: 30px;
-            font-family: Times New Roman,Georgia,Garamond;
-            font-weight: 900;
-            color:white;
-        }
+       h1 {
+	text-align: center;
+	font-size: 30px;
+	font-family: Times New Roman, Georgia, Garamond;
+	font-weight: 900;
+	color: white;
+}
        
         .login{  
         width: 382px;  
@@ -120,18 +122,18 @@
   <a href="About.html" class="hre">About</a> 
   </div> 
   <br>
-	<h1> WELCOME TO FUTURE INSTITUTE OF ENGINEERING AND MANAGEMENT </h1>
+	<h1> <marquee>WELCOME TO FUTURE INSTITUTE OF ENGINEERING AND MANAGEMENT</marquee> </h1>
 	<hr>
 	<h2>User Login</h2>
 	<br>  
     <div class="login">    
     <form id="login" method="post" action="LoginServ">    
-        <label><b>User Name     
+        <label><b>Email     
         </b>    
         </label>    
         <input type="text" name="Uname" id="Uname" placeholder="Username"/>    
         <br><br>  
-        <label><b>Enter Password
+        <label><b>Password
         </b>
         </label>   
         <input type="password" placeholder="Enter Password" name="Pass" required/>   

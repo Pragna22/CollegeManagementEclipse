@@ -571,10 +571,9 @@ else
        <a href="Stu_marks.jsp"></a>
       </div>
       </form>
-      <button type="button" class="collapsible">Subject</button>
-      <div class="content">
-          
-    </div>     
+      <form id="Library_detailsServ" name="Library_detailsServ" method="Get" action="Library_detailsServ">
+      <button type="button" class="collapsible"><a href="display_library.jsp?uid=<%= pageContext.getAttribute("user_uid") %>">Library</a></button>
+     </form>    
       </div>
         <script>
             var coll = document.getElementsByClassName("collapsible");

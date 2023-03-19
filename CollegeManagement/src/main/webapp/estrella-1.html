@@ -10,6 +10,82 @@
     <link rel="stylesheet" href="navbar.css">	
 
 	<style >
+         
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: center;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 782px;
+  position: relative;
+  margin: 0 200px 5px 530px;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+.prev{
+    margin: auto;
+    margin-top: -22px;
+}
+
+.next{
+    margin-right:240px;
+    margin-top: -22px;
+}
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 5px 0 0 50px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
 	body {margin:0;height:2000px;}
 
 .icon-bar {
@@ -52,7 +128,7 @@
                   font-family: 'Arial';
 				}
         body {
-            background: url("eslogo.jpeg");
+            background: url("eslogo.jpg");
     background-position: top; 
   background-repeat: no-repeat; 
   background-size: cover;
@@ -159,7 +235,54 @@
       <a href="gallery.jsp">Gallery</a>
       <a href="contact.html">Contact</a>
       <a href="About.html">About</a> 
-      </div>
+      </div><br><br>
+      <div class="head">
+        <h2>
+            <marquee>ESTRELLA PRODUCTIONS</marquee>
+        </h2>
+    </div><br>
+      <div class="slideshow-container">
+
+        <div class="mySlides fade">
+          <!-- <div class="numbertext"></div> -->
+          <img src="e1.jpg" style="width:70%">
+         <!--  <div class="text">Caption Text</div> -->
+        </div>
+        
+        <div class="mySlides fade">
+         <!--  <div class="numbertext"></div> -->
+          <img src="e2.jpg" style="width:70%">
+          <!-- <div class="text">Caption Two</div> -->
+        </div>
+        
+        <div class="mySlides fade">
+         <!--  <div class="numbertext"></div> -->
+          <img src="e3.jpg" style="width:70%">
+         <!--  <div class="text">Caption Three</div> -->
+        </div>
+        <div class="mySlides fade">
+<!--           <div class="numbertext"></div> -->
+          <img src="e4.jpg" style="width:70%">
+         <!--  <div class="text">Caption Three</div> -->
+        </div>
+        <div class="mySlides fade">
+         <!--  <div class="numbertext"></div> -->
+          <img src="e5.jpg" style="width:70%">
+         <!--  <div class="text">Caption Three</div> -->
+        </div>
+
+        
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+        
+        </div>
+            <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span> 
+            <span class="dot" onclick="currentSlide(2)"></span> 
+            <span class="dot" onclick="currentSlide(3)"></span> 
+            <span class="dot" onclick="currentSlide(4)"></span> 
+            <span class="dot" onclick="currentSlide(5)"></span> 
+          </div>
       <div class="icon-bar">
   <a href="https://www.facebook.com/estellaprod/" class="facebook"><i class="fa fa-facebook"></i></a> 
   <a href="https://www.instagram.com/estrellaproductions/?hl=en" class="instagram"><i class="fa fa-instagram"></i></a> 
@@ -168,16 +291,11 @@
      <!--  <div id="club1">
         <img src="eslogo.jpeg">
       </div> -->
-    <div class="head">
-        <h2>
-            <marquee>ESTRELLA</marquee>
-        </h2>
+   <br>
+   <div class="abt">
+    <div class="content">
+    <h2>ABOUT US</h2>
     </div><br>
-    
-    <div class="abt">
-        <div class="content">
-        <h2>ABOUT US</h2>
-        </div>
         <div class="about">
             
             <p><em>Human, being the most intelligent and creative creature on Earth, has always worked hard for the betterment of self and society, which would remain unfulfilled if there was no such scope for entertainment.   <br><br>                                                                                          
@@ -196,6 +314,28 @@
     <div class="fest">
     <br><a href="Fests.html">FESTS</a>
 </div>
+<script>
+  let slideIndex = 0;
+  showSlides();
+  
+  function showSlides() {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}    
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active";
+    setTimeout(showSlides, 5000); 
+  }
+  </script>
+  
 </body>
 
 </html>

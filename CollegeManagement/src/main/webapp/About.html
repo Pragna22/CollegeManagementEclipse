@@ -9,6 +9,31 @@
     <link rel="stylesheet" href="navbar.css">
 
 <style>
+    #slider {
+        height: 70dvh;
+        background-size: cover;
+        background-position: center;
+        transition: background-image 1s ease-in-out;
+      }
+
+      /* .slider-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+        background-color: white;
+        color: black;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .slider-button.next {
+        right: 20px;
+      }
+
+      .slider-button.prev {
+        left: 20px;
+      } */
   .topnav,#home a{
     background-color: #008b8b;
     overflow: hidden;
@@ -92,6 +117,8 @@
   <a href="contact.html">Contact</a>
   <a href="About.html" class="hre">About</a> 
   </div> 
+<br>
+<div id="slider"></div>
     <div class="about">
         <h3><em>The Engineering Institute was inaugurated in June, 2002 by the Hon'ble Chief Minister of West Bengal.
                 The Business School was flagged off with the blessings of Prof. Jagdish Seth of Emory University, US who
@@ -230,6 +257,30 @@
     <div class="place">
         <a href="placement.html">PLACEMENT RECORDS</a>
         </div>
-</body>
 
+<script>
+    const slider = document.getElementById("slider");
+   const images = [
+     "about1.jpg",
+     "about2.jpg",
+     "about3.jpg",
+     "future.jpg",
+    
+   ];
+
+   let index = 0;
+
+   function nextImage() {
+     index = (index + 1) % images.length;
+     slider.style.backgroundImage = `url(${images[index]})`;
+   }
+
+   function prevImage() {
+     index = (index - 1 + images.length) % images.length;
+     slider.style.backgroundImage = `url(${images[index]})`;
+   }
+
+   setInterval(nextImage, 3000);
+ </script>
+ </body>
 </html>

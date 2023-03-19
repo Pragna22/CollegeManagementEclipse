@@ -7,17 +7,20 @@
     <title>Document</title>
     <link rel="stylesheet" href="navbar.css">
     <style>
+      #slider {
+        height: cover;
+        background-size: cover;
+        background-position: center;
+        transition: background-image 1s ease-in-out;
+      }
+
         .topnav,#home a{
                  background-color: #008b8b;
                  overflow: hidden;
+                 font-family: 'Arial';
                 }
 	h1{
 		text-align: center;
-	}
-	body{
-		background-color: rgba(94, 248, 71, 0.79);
-		font-family: 'Arial';
-		padding: 20px;
 	}
   .collapsible {
   background-color: rgb(154, 17, 116);
@@ -71,6 +74,7 @@
     </style>
 </head>
 <body>
+  <div id="slider">
     <div id="logo">
 		<img src="fiem.jpg">
 	  </div><br>
@@ -153,6 +157,8 @@
         <h2>PAYMENT OPTIONS</h2>
         Payment must be made by Demand Draft of Cash in favour of "FUTURE INSTITUTE OF ENGINEERING AND MANAGEMENT", payable at Kolkata to be deposited at AXIS BANK (All Branch) & Allahabad Bank (Narendrapur Branch) Opp. to FIEM. Also,you can do it by online.
       </div>
+    </div>
+
      <script>
       var coll = document.getElementsByClassName("collapsible");
       var i;
@@ -168,6 +174,29 @@
           }
         });
       }
+
+    
+       const slider = document.getElementById("slider");
+      const images = [
+        "about4.jpg",
+        "about5.jpg",
+        "about3.jpg",
+      ];
+
+      let index = 0;
+
+      function nextImage() {
+        index = (index + 1) % images.length;
+        slider.style.backgroundImage = `url(${images[index]})`;
+      }
+
+      function prevImage() {
+        index = (index - 1 + images.length) % images.length;
+        slider.style.backgroundImage = `url(${images[index]})`;
+      }
+
+      setInterval(nextImage, 3000);
+  
       </script><br>
 </body>
 </html>

@@ -96,7 +96,7 @@ h3{
 .dep{
   float: middle;
   text-align: center;
-  margin : 0px 710px 20px 100px;
+  margin : 0px 500px 20px 100px;
 }
   </style>
 </head>
@@ -133,22 +133,6 @@ h3{
     <form id="marks" method="Get" action="Fac_marks">
         <label><b>Student Name :</b></label>  
         <input type="text" name="name" placeholder="Enter the name of the student"><br><br>
-		<label><b>Pursing Semester </b></label>  
-        <input type="text" name="sem" placeholder="Enter the sem"><br>
-        <div><br>
-            <!-- <label><b>Streams :</b></label>  
-            <select name="department" id="department">
-                <option value="CSE"><a href="admin.html">CSE</a></option>
-                <option value="ECE">ECE</option>
-                <option value="IT">IT</option>
-                <option value="ME" >ME</option>
-                <option value="ME" selected>EE</option>
-            </select>
-            </div>
-        <div><br> -->
-            <label><b>Class Roll number :</b></label>  
-            <input type="text" name="croll" placeholder="Enter the class roll number.">
-            </div>
             <div><br>
                 <label><b>Makaut Roll Number :</b></label>  
                 <input type="text" name="uid" placeholder="Enter the makaut roll number.">
