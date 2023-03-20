@@ -109,7 +109,9 @@ String user_uid=request.getParameter("uid");
                 }
 
 	body{
-		background-color: lightpink;
+		 background-image: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);
+		 background-attachment: fixed;
+         background-repeat: no-repeat;
 		font-family: 'Arial';
 	}
  

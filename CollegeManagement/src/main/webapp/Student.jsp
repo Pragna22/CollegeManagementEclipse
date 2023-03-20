@@ -3,7 +3,7 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="javax.servlet.http.Cookie" %>
 <%@ page import="Database.jdbcutil" %>
-<
+
 
 
 
@@ -34,7 +34,9 @@
             padding: 5px 5px 5px 10px;
         }
         body {
-            background: rgb(198, 198, 237);
+          
+background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(221,4,236,1) 58%, rgba(239,245,246,1) 99%);
             padding: 0;
             margin: 0;
             font-family: 'Lato', sans-serif;
@@ -571,6 +573,7 @@ else
        <a href="Stu_marks.jsp"></a>
       </div>
       </form>
+      <br>
       <form id="Library_detailsServ" name="Library_detailsServ" method="Get" action="Library_detailsServ">
       <button type="button" class="collapsible"><a href="display_library.jsp?uid=<%= pageContext.getAttribute("user_uid") %>">Library</a></button>
      </form>    

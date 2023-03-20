@@ -31,7 +31,8 @@
             padding: 5px 5px 5px 10px;
         }
         body {
-            background: rgb(198, 198, 237);
+            background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,0.9136904761904762) 2%, rgba(4,63,236,1) 58%, rgba(239,245,246,1) 99%);
             padding: 0;
             margin: 0;
             font-family: 'Lato', sans-serif;
