@@ -69,7 +69,6 @@ table{
 th {
   height: 70px;
 }
-
 .roll{
   color: darkblue;
     /* background-color: lightcoral; */

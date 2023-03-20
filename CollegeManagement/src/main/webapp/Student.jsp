@@ -100,7 +100,6 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(221,4,236,1) 58%, rgb
 collapsible:hover {
   background-color: #555;
 }
-
 .content {
   padding: 0 18px;
   display: none;

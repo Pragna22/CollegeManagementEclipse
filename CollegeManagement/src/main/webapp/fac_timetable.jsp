@@ -151,7 +151,6 @@ table{
     text-align: center;
     margin-left: 190px;
 }
-
   </style>
 </head>
 <body>

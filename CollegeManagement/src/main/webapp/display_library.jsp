@@ -78,7 +78,6 @@ String user_uid=request.getParameter("uid");
   
     
        
-
     	libraryDetails.add(ob);
       
     
