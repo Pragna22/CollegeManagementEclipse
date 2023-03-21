@@ -64,6 +64,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(221,4,236,1) 58%, rgb
             float: left;
             font-size: 1cm;
             margin-right: 30cm;
+            color: white;
         }
         .info{
             text-align: center;
@@ -78,7 +79,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(221,4,236,1) 58%, rgb
   padding: 10px ;
   display: none;
   overflow: hidden;
-  background-color: #f1f1f1;
+ 
   cursor: pointer;
 }
 .collapsible {
@@ -104,7 +105,7 @@ collapsible:hover {
   padding: 0 18px;
   display: none;
   overflow: hidden;
-  background-color: #f1f1f1;
+	color:white;
 }
 .student_profile .profile_img{
          border-radius: 10px;
@@ -231,7 +232,7 @@ border: 1px solid black;
     </style>
 </head>
 <body>
-
+	
     <div id="home">
         <a href="index.html" target="_blank">Home</a>
      </div>

@@ -122,6 +122,7 @@ else
     }
     body{
         background-color: lightpink;
+        font-family: 'Arial';
     }
     .collapsible {
     color: darkblue;

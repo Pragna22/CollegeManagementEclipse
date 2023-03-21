@@ -60,6 +60,7 @@ background: linear-gradient(90deg, rgba(2,0,36,0.9136904761904762) 2%, rgba(4,63
             float: left;
             font-size: 1cm;
             margin-right: 30cm;
+            color:white
         }
         .info{
             text-align: center;
@@ -74,7 +75,7 @@ background: linear-gradient(90deg, rgba(2,0,36,0.9136904761904762) 2%, rgba(4,63
   padding: 10px ;
   display: none;
   overflow: hidden;
-  background-color: #f1f1f1;
+  color:white;
   cursor: pointer;
 }
 .collapsible {
@@ -101,7 +102,7 @@ collapsible:hover {
   padding: 0 18px;
   display: none;
   overflow: hidden;
-  background-color: #f1f1f1;
+  
 }
 .fac_profile .profile_img{
          border-radius: 10px;

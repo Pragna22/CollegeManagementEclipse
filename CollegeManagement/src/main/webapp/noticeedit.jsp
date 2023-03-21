@@ -67,7 +67,7 @@
      <div class="topnav">
     
       
-      <a href="login.html" target="_blank">Login/Signup</a>
+      <a href="login.html" target="_blank">Login</a>
       <div class="dropdown">
         <button class="dropbtn">Extracurricular
           <i class="fa fa-caret-down"></i>

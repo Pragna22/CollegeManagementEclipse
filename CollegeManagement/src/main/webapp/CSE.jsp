@@ -17,7 +17,6 @@
 	body{
 		background-color: lightpink;
 		font-family: 'Arial';
-		padding: 20px;
 	}
   h4{
         text-decoration: underline;
